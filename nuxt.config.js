@@ -50,11 +50,14 @@ export default {
   */
   buildModules: [
   ],
+  dev: (process.env.NODE_ENV !== 'production'),
   /*
   ** Nuxt.js modules
   */
   modules: [
     [
+      '@nuxtjs/axios',
+      '@nuxtjs/proxy',
       'storyblok-nuxt',
       {
         accessToken: 'FsriFeBySE2IiLllzIqaWAtt',
@@ -67,5 +70,10 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-  }
+  },
+  proxy: {
+    '/api': (this.dev) ? 'http://localhost:8000' : 'https://production-url'
+  },
+  axios: {
+  },
 }
