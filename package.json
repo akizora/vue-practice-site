@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
+    "bootstrap": "^4.5.2",
+    "bootstrap-vue": "^2.16.0",
     "nuxt": "^2.14.0",
     "storyblok-nuxt": "^1.2.0"
   },

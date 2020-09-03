@@ -1,7 +1,7 @@
 <template>
   <div>
     <top-header/>
-    <main id="main" role="main">
+      <main id="main" role="main">
       <nuxt/>
     </main>
     <bottom-footer/>
@@ -9,11 +9,13 @@
 </template>
 
 <script>
+import Header from '~/components/Header.vue'
 import TopHeader from '~/components/TopHeader.vue'
 import BottomFooter from '~/components/BottomFooter.vue'
 
 export default {
   components: {
+    Header,
     TopHeader,
     BottomFooter
   }
