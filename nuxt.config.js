@@ -23,10 +23,11 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,700'
-      }
+      // {
+      //   rel: 'stylesheet',
+      //   href: 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,700'
+      // },
+      { rel: 'stylesheet', href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' }    
     ]
   },
   /*
@@ -59,6 +60,7 @@ export default {
       '@nuxtjs/axios',
       '@nuxtjs/proxy',
       'storyblok-nuxt',
+      'bootstrap-vue/nuxt',
       {
         accessToken: 'FsriFeBySE2IiLllzIqaWAtt',
         cacheProvider: 'memory'
@@ -75,5 +77,8 @@ export default {
     '/api': (this.dev) ? 'http://localhost:8000' : 'https://production-url'
   },
   axios: {
+  },
+  fontawesome: {
+    component: 'fa'
   },
 }
