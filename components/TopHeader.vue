@@ -1,35 +1,26 @@
 <template>
   <header>
     <div id="top-header">
-      <div class="container">
-        <ul class="header-links pull-left">
+      <div class="container d-flex">
+        <ul class="header-links pull-left float-left">
           <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
           <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
           <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
         </ul>
-        <ul class="header-links pull-right">
+        <ul class="header-links pull-right float-right">
           <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
           <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
         </ul>
       </div>
     </div>
-    <!-- MAIN HEADER -->
     <div id="header">
-      <!-- container -->
       <div class="container">
-        <!-- row -->
         <div class="row">
-          <!-- LOGO -->
           <div class="col-md-3">
             <div class="header-logo">
-              <a href="#" class="logo">
-                <!-- <img src="./img/logo.png" alt=""> -->
-              </a>
+              <a href="#" class="logo"></a>
             </div>
           </div>
-          <!-- /LOGO -->
-
-          <!-- SEARCH BAR -->
           <div class="col-md-6">
             <div class="header-search">
               <form>
@@ -43,12 +34,8 @@
               </form>
             </div>
           </div>
-          <!-- /SEARCH BAR -->
-
-          <!-- ACCOUNT -->
           <div class="col-md-3 clearfix">
             <div class="header-ctn">
-              <!-- Wishlist -->
               <div>
                 <a href="#">
                   <i class="fa fa-heart-o"></i>
@@ -56,9 +43,6 @@
                   <div class="qty">2</div>
                 </a>
               </div>
-              <!-- /Wishlist -->
-
-              <!-- Cart -->
               <div class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                   <i class="fa fa-shopping-cart"></i>
@@ -77,7 +61,6 @@
                       </div>
                       <button class="delete"><i class="fa fa-close"></i></button>
                     </div>
-
                     <div class="product-widget">
                       <div class="product-img">
                         <!-- <img src="./img/product02.png" alt=""> -->
@@ -121,6 +104,29 @@
 </template>
 
 <style lang="scss">
+/*----------------------------*\
+	Inputs
+\*----------------------------*/
+
+/*-- Text input --*/
+
+.input {
+  height: 40px;
+  padding: 0px 15px;
+  border: 1px solid #E4E7ED;
+  background-color: #FFF;
+  width: 100%;
+}
+
+textarea.input {
+  padding: 15px;
+  min-height: 90px;
+}
+
+/*----------------------------*\
+	Top header
+\*----------------------------*/
+
   #top-header {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -176,6 +182,48 @@
     position: relative;
   }
 
+  .header-search form .input-select {
+    margin-right: -4px;
+    border-radius: 40px 0px 0px 40px;
+  }
+
+  .header-search form .input {
+    width: calc(100% - 260px);
+    margin-right: -4px;
+  }
+
+  .header-search form .search-btn {
+    height: 40px;
+    width: 90px;
+    background: #D10024;
+    color: #FFF;
+    font-weight: 700;
+    border: none;
+    border-radius: 0px 40px 40px 0px;
+  }
+
+  /*-- Select input --*/
+  .input-select {
+    padding: 0px 15px;
+    background: #FFF;
+    border: 1px solid #E4E7ED;
+    height: 40px;
+  }
+
+  .product-details .product-options .input-select {
+    width: 90px;
+  }
+
+  .header-search form .input-select {
+    margin-right: -4px;
+    border-radius: 40px 0px 0px 40px;
+  }
+
+  .header-search form .input {
+    width: calc(100% - 260px);
+    margin-right: -4px;
+  }
+
   /*----------------------------*\
     Cart
   \*----------------------------*/
@@ -201,16 +249,16 @@
     color: #FFF;
   }
 
-  .header-ctn>div>a>i {
+  .header-ctn div a i {
     display: block;
     font-size: 18px;
   }
 
-  .header-ctn>div>a>span {
+  .header-ctn div a span {
     font-size: 12px;
   }
 
-  .header-ctn>div>a>.qty {
+  .header-ctn div a .qty {
     position: absolute;
     right: 15px;
     top: -10px;
@@ -301,26 +349,6 @@
     padding-top: 15px;
     padding-bottom: 15px;
   }
-
-.header-search form .input-select {
-  margin-right: -4px;
-  border-radius: 40px 0px 0px 40px;
-}
-
-.header-search form .input {
-  width: calc(100% - 260px);
-  margin-right: -4px;
-}
-
-.header-search form .search-btn {
-  height: 40px;
-  width: 100px;
-  background: #D10024;
-  color: #FFF;
-  font-weight: 700;
-  border: none;
-  border-radius: 0px 40px 40px 0px;
-}
 
   .header-links li {
     display: inline-block;

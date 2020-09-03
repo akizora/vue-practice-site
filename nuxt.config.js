@@ -78,4 +78,7 @@ export default {
   },
   axios: {
   },
+  fontawesome: {
+    component: 'fa'
+  },
 }
