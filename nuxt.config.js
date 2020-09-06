@@ -40,7 +40,8 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    { src: '@/plugins/vue-awesome-swiper', ssr: false }
+    { src: '@/plugins/axios/index'},
+    { src: '~/plugins/vue-awesome-swiper', ssr: false , mode: 'client'}
   ],
   /*
   ** Auto import components
