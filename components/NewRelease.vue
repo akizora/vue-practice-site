@@ -6,23 +6,23 @@
 						<h3 class="title">最近紹介された書籍</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-								<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
+								<!-- <li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
 								<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-								<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
+								<li><a data-toggle="tab" href="#tab1">Cameras</a></li> -->
 							</ul>
 						</div>
 					</div>
 				</div>
-        <div class="products-slick" data-nav="#slick-nav-1">
+        <div class="products-slick row" data-nav="#slick-nav-1">
           <!-- product -->
-          <div class="product" v-for="item in this.postData" :key="item.title">
+          <div class="product col" v-for="item in this.postData" :key="item.title">
             <div class="product-img">
               <div class="product-label">
-                <span class="new">NEW</span>
+                <!-- <span class="new">NEW</span> -->
               </div>
             </div>
             <div class="product-body">
-              <p class="product-category">Category</p>
+              <!-- <p class="product-category">Category</p> -->
               <h3 class="product-name"><a href="#">{{ item.title }}</a></h3>
               <div class="product-rating">
               </div>
@@ -33,8 +33,7 @@
               </div>
             </div>
             <div class="add-to-cart">
-              <p style="color:white;">url</p>
-              <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+              <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>amazonでみる</button>
             </div>
           </div>
         </div>
@@ -90,7 +89,7 @@ export default {
 
 .section-title .title {
   display: inline-block;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   margin: 0px;
 }
 
@@ -155,7 +154,7 @@ export default {
   margin-top: 0px;
   margin-bottom: 0px;
   margin-right: 15px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
 
 #breadcrumb .breadcrumb-tree {
@@ -166,7 +165,7 @@ export default {
   display: inline-block;
   font-size: 12px;
   font-weight: 500;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
 
 #breadcrumb .breadcrumb-tree li+li {
@@ -257,13 +256,13 @@ export default {
 }
 
 .product .product-body .product-category {
-  text-transform: uppercase;
+  // text-transform: uppercase;
   font-size: 12px;
   color: #8D99AE;
 }
 
 .product .product-body .product-name {
-  text-transform: uppercase;
+  // text-transform: uppercase;
   font-size: 14px;
 }
 
@@ -380,21 +379,21 @@ export default {
   z-index: 2;
 }
 
-.product:hover .add-to-cart {
-  -webkit-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  transform: translateY(100%);
-}
+// .product:hover .add-to-cart {
+//   -webkit-transform: translateY(100%);
+//   -ms-transform: translateY(100%);
+//   transform: translateY(100%);
+// }
 
 .product .add-to-cart .add-to-cart-btn {
   position: relative;
   border: 2px solid transparent;
   height: 40px;
-  padding: 0 30px;
+  padding: 0 10%;
   background-color: #ef233c;
   color: #FFF;
-  text-transform: uppercase;
-  font-weight: 700;
+  // text-transform: uppercase;
+  // font-weight: 700;
   border-radius: 40px;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
@@ -416,7 +415,8 @@ export default {
   background-color: #FFF;
   color: #D10024;
   border-color: #D10024;
-  padding: 0px 30px 0px 50px;
+  // padding: 0px 30px 0px 50px;
+  cursor: pointer;
 }
 
 .product .add-to-cart .add-to-cart-btn:hover>i {
