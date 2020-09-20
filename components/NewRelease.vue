@@ -6,24 +6,19 @@
 						<h3 class="title">最近紹介された書籍</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-								<!-- <li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-								<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-								<li><a data-toggle="tab" href="#tab1">Cameras</a></li> -->
 							</ul>
 						</div>
 					</div>
 				</div>
         <div class="products-slick row" data-nav="#slick-nav-1">
-          <!-- product -->
-          <div class="product col" v-for="item in this.postData" :key="item.book_name">
+          <div class="product col" v-for="item in this.postData" :key="item.id">
             <div class="product-img">
               <div class="product-label">
-                <!-- <span class="new">NEW</span> -->
               </div>
             </div>
             <div class="product-body">
-              <a target="_blank" ><img border="0" :src=item.img_url ></a><img src="https://images-na.ssl-images-amazon.com/images/P/4295009792.09.TZZZZZZZ.jpg" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-              <h3 class="product-name"><a href="#">{{ item.book_name }}</a></h3>
+              <a target="_blank" @click="$router.push({ path: 'book', query: { id : item.id }})"><img border="0" :src=item.img_url ></a><img src="https://images-na.ssl-images-amazon.com/images/P/4295009792.09.TZZZZZZZ.jpg" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+              <h3 class="product-name"><a @click="$router.push({ path: 'book', query: { id : item.id }})">{{ item.book_name }}</a></h3>
               <div class="product-rating">
               </div>
               <div class="product-btns">
@@ -33,7 +28,7 @@
               </div>
             </div>
             <div class="add-to-cart">
-              <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>amazonでみる</button>
+              <button class="add-to-cart-btn" @click="$router.push({ path: 'book', query: { id : item.id }})" ><i class="fa fa-shopping-cart"></i>詳しくみる</button>
             </div>
           </div>
         </div>
