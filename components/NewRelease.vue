@@ -15,15 +15,15 @@
 				</div>
         <div class="products-slick row" data-nav="#slick-nav-1">
           <!-- product -->
-          <div class="product col" v-for="item in this.postData" :key="item.title">
+          <div class="product col" v-for="item in this.postData" :key="item.book_name">
             <div class="product-img">
               <div class="product-label">
                 <!-- <span class="new">NEW</span> -->
               </div>
             </div>
             <div class="product-body">
-              <!-- <p class="product-category">Category</p> -->
-              <h3 class="product-name"><a href="#">{{ item.title }}</a></h3>
+              <a target="_blank" ><img border="0" :src=item.img_url ></a><img src="https://images-na.ssl-images-amazon.com/images/P/4295009792.09.TZZZZZZZ.jpg" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+              <h3 class="product-name"><a href="#">{{ item.book_name }}</a></h3>
               <div class="product-rating">
               </div>
               <div class="product-btns">
@@ -55,6 +55,7 @@ export default {
     getBooks() {
       console.log(8)
       BookApi.getBooks().then(res => {
+        console.log(55)
         console.log(res)
         this.postData = res
       }).catch(err => {
