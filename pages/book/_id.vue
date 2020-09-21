@@ -1,31 +1,30 @@
 <template>
-    <div classw="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div id="product-main-img">
-                     <!-- {{ $route.query.id }} -->
-                     <img class="rounded mx-auto d-block" border="0" :src=this.bookInfo.img_url >
-                </div>
+  <div class="section py-5">
+    <div class="container py-3">
+      <div class="row">
+          <div class="col-md-6">
+            <div id="product-main-img py-1">
+              <!-- {{ $route.query.id }} -->
+              <img class="rounded mx-auto d-block" border="0" :src=this.bookInfo.img_url >
             </div>
-            <div class="col-sm-6">
-                <div class="product-details">
-                    <h2 class="product-name">{{ this.bookInfo.book_name }}</h2>
-                    <div>
-                        <!-- <h3 class="product-price">title</h3> -->
-                    </div>
-                    <p>この本を紹介している記事</p>
-                    <ul class="product-btns">
-                        <li><a href="#">add to wishlist</a></li>
-                        <li><a href="#">add to compare</a></li>
-                    </ul>
-                    <ul class="product-links">
-                        <li>この本を紹介している記事についているタグ</li>
-                        <li><a href="#">TEST</a></li>
-                    </ul>
-                </div>
+          </div>
+          <div class="col-md-6">
+            <div class="product-details">
+              <h2 class="product-name">{{ this.bookInfo.book_name }}</h2>
+              <p>この本を紹介している記事</p>
+              <ul class="product-btns">
+                <li><a href="#">add to wishlist</a></li>
+                <li><a href="#">add to compare</a></li>
+              </ul>
+              <ul class="product-links">
+                <li>この本を紹介している記事についているタグ</li>
+                <li><a href="#">TEST</a></li>
+              </ul>
             </div>
-        </div>
+          </div>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 import BookApi from '@/plugins/axios/modules/book'
@@ -58,10 +57,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.section {
+  height: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 /*----------------------------*\
 	Product details
 \*----------------------------*/
-
 .product-details .product-name {
   font-size: 18px;
 }
