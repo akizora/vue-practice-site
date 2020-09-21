@@ -25,7 +25,7 @@
 
 #bottom-footer {
   height: 100px;
-  position: absolute;
+  // position: absolute;
   background: #1E1F29;
   bottom: 0;
 }
