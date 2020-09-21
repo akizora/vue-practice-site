@@ -4,8 +4,8 @@
     <top-nav/>
     <main id="main" role="main">
       <nuxt/>
+      <bottom-footer/>
     </main>
-    <bottom-footer/>
   </div>
 </template>
 <script>
