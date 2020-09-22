@@ -2,7 +2,7 @@
   <header>
     <div id="top-header">
       <div class="container d-flex">
-        <ul class="header-links pull-left float-left">
+        <ul class="header-links my-1">
           <li><a href="/"><i class="fa"></i>Qiita本</a></li>
           <!-- <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
           <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li> -->
@@ -24,13 +24,9 @@
               </form>
             </div>
           </div>
-          <!-- /ACCOUNT -->
         </div>
-        <!-- row -->
       </div>
-      <!-- container -->
     </div>
-    <!-- /MAIN HEADER -->
   </header>
 </template>
 
@@ -283,12 +279,12 @@ textarea.input {
 
   .header-links li {
     display: inline-block;
-    margin-right: 15px;
+    // margin-right: 15px;
     font-size: 12px;
   }
 
   .header-links li:last-child {
-    margin-right: 0px;
+    // margin-right: 0px;
   }
 
   .header-links li a {
@@ -301,7 +297,7 @@ textarea.input {
 
   .header-links li i {
     color: #D10024;
-    margin-right: 5px;
+    // margin-right: 5px;
   }
 
   .top-header__second-navi {
@@ -314,7 +310,7 @@ textarea.input {
   }
   #top-header .header-links.pull-right {
     float: none !important;
-    margin-top: 5px;
+    // margin-top: 5px;
   }
   .header-logo {
     float: none;

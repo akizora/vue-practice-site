@@ -2,7 +2,7 @@
 	<div class="section">
 		<div class="container">
 				<div class="row">
-					<div class="col-md-12 section-title">
+					<div class="col-md-12 section-title mt-5">
 						<h3 class="title">最近紹介された書籍</h3>
             <!-- <p>最終更新日時</p>pme -->
 						<div class="section-nav">
@@ -12,7 +12,7 @@
 					</div>
 				</div>
         <div class="row">
-          <div class="col-sm-12 div-slide">
+          <div class="col-sm-12 div-slide w-100">
             <swiper :options="swiperOption">
                 <swiper-slide v-for="item in this.postData" :key="item.id" class="h-100">
                   <div class="product my-5">
@@ -67,7 +67,7 @@ export default {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
         },
-        slidesPerView: 3,
+        slidesPerView: 5,
       },
     }
   },
@@ -386,7 +386,7 @@ export default {
   // left: 1px;
   // right: 1px;
   // bottom: 1px;
-  padding: 15px;
+  padding: 10px 0;
   background: #1e1f29;
   text-align: center;
   // -webkit-transform: translateY(0%);
@@ -413,6 +413,7 @@ export default {
   border-radius: 40px;
   // -webkit-transition: 0.2s all;
   // transition: 0.2s all;
+  text-decoration: none;
 }
 
 // .product .add-to-cart .add-to-cart-btn>i {

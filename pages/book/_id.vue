@@ -2,24 +2,18 @@
   <div>
     <div class="container pt-5">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <div id="product-main-img py-1">
-            <!-- {{ this.bookInfo }} -->
-            <!-- {{ this.relatePosts }} -->
-            <img class="rounded mx-auto d-block" border="0" :src=this.bookInfo.img_url >
+            <img class="rounded mx-auto d-block book-img" border="0" :src=this.bookInfo.large_img_url >
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-6">
           <div class="product-details">
             <h2 class="product-name">{{ this.bookInfo.book_name }}</h2>
-            <p>この本を紹介している記事</p>
-            <div class="product col" v-for="item in this.relatePosts" :key="item.id">
+            <p class="my-3">この本を紹介している記事</p>
+            <div class="product" v-for="item in this.relatePosts" :key="item.id">
               <a :href=item.rendered_body >{{ item.title }}</a>
             </div>
-            <ul class="product-btns">
-              <!-- <li><a href="#">add to wishlist</a></li> -->
-              <!-- <li><a href="#">add to compare</a></li> -->
-            </ul>
             <!-- <ul class="product-links">
               <li>この本を紹介している記事についているタグ</li>
               <li><a href="#">TEST</a></li>
@@ -27,10 +21,10 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6 text-center"></div>
-      <div class="col-sm-6"><a href="">amazonで詳しくみる</a></div>
+      <div class="row my-3">
+        <div class="col-sm-6 p-3 text-center"><a href="" class="add-to-cart-btn p-2">amazonで詳しくみる</a></div>
+        <div class="col-sm-6"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -39,10 +33,8 @@ import BookApi from '@/plugins/axios/modules/book'
 import BookPostApi from '@/plugins/axios/modules/bookpost'
 
 export default {
-
   data () {
     return {
-      // bookInfo: []
       bookInfo: this.getBook(this.$route.params.id),
       relatePosts: this.getBookPost(this.$route.params.id),
       postInfo: null,
@@ -53,6 +45,7 @@ export default {
         await BookApi.getBook(id).then(res => {
         // console.log(res)
         this.bookInfo = res
+        this.bookInfo.large_img_url = 'https://images-na.ssl-images-amazon.com/images/P/' + res.asin + '.09.LZZZZZZZ.jpg'
         // const idLists = res.qiita_posts
         // idLists.forEach(postid => {
         //   this.relatePosts = 'https://qiita.com/items/' + postid
@@ -83,6 +76,24 @@ export default {
   height: 100%;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+.book-img {
+  height: 300px;
+}
+.add-to-cart-btn {
+  border: 2px solid transparent;
+  height: 40px;
+  padding: 0 10%;
+  text-decoration: none;
+  background-color: #FF9900;
+  color: #FFF;
+  border-radius: 40px;
+}
+.add-to-cart-btn:hover {
+  background-color: #FFF;
+  color: #FF9900;
+  border-color: #FF9900;
+  cursor: pointer;
 }
 /*----------------------------*\
 	Product details

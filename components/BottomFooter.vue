@@ -24,6 +24,7 @@
 }
 
 #bottom-footer {
+  // height: 100px;
   height: 100px;
   position: absolute;
   background: #1E1F29;

@@ -1,11 +1,11 @@
 <template>
   <div>
     <top-header/>
-    <top-nav/>
+    <!-- <top-nav/> -->
     <!-- <main id="main" role="main"> -->
     <nuxt/>
     <!-- </main> -->
-    <!-- <bottom-footer/> -->
+    <bottom-footer/>
   </div>
 </template>
 <script>
