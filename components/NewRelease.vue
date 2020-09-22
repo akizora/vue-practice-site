@@ -1,14 +1,8 @@
 <template>
 	<div class="section">
-          <!-- <swiper>
-            <swiper-slide>スライダー１</swiper-slide>
-            <swiper-slide>スライダー２</swiper-slide>
-            <swiper-slide>スライダー３</swiper-slide>
-          </swiper> -->
-
 		<div class="container">
-				<div class="col-md-12">
-					<div class="section-title">
+				<div class="row">
+					<div class="col-md-12 section-title">
 						<h3 class="title">最近紹介された書籍</h3>
             <!-- <p>最終更新日時</p>pme -->
 						<div class="section-nav">
@@ -17,29 +11,35 @@
 						</div>
 					</div>
 				</div>
-        <div class="products-slick" data-nav="#slick-nav-1">
-          <swiper :options="swiperOption">
-              <swiper-slide v-for="item in this.postData" :key="item.id">
-              <div class="product" >
-                <div class="product-img">
-                  <div class="product-label">
+        <div class="row">
+          <div class="col-sm-12 div-slide">
+            <swiper :options="swiperOption">
+                <swiper-slide v-for="item in this.postData" :key="item.id" class="h-100">
+                  <div class="product my-5">
+                    <div class="product-body">
+                      <nuxt-link :to="`/book/${item.id}`">
+                      <!-- <a @click="$router.push({ path: 'book', query: { id : item.id }})"> -->
+                        <img border="0" :src=item.img_url >
+                      <!-- </a> -->
+                      </nuxt-link>
+                      <h3 class="product-name">
+                        <!-- <a @click="$router.push({ path: 'book', query: { id : item.id }})">{{ item.book_name }}</a> -->
+                        <nuxt-link :to="`/book/${item.id}`">{{ item.book_name }}
+                        </nuxt-link>
+                      </h3>
+                    </div>
+                    <div class="add-to-cart">
+                      <nuxt-link class="add-to-cart-btn" :to="`/book/${item.id}`" >
+                        詳しくみる
+                      </nuxt-link>
+                    </div>
                   </div>
-                </div>
-                <div class="product-body">
-                  <a target="_blank" @click="$router.push({ path: 'book', query: { id : item.id }})"><img border="0" :src=item.img_url ></a><img src="https://images-na.ssl-images-amazon.com/images/P/4295009792.09.TZZZZZZZ.jpg" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-                  <h3 class="product-name"><a @click="$router.push({ path: 'book', query: { id : item.id }})">{{ item.book_name }}</a></h3>
-                  <div class="product-rating">
-                  </div>
-                </div>
-                <div class="add-to-cart">
-                  <button class="add-to-cart-btn" @click="$router.push({ path: 'book', query: { id : item.id }})" ><i class="fa fa-shopping-cart"></i>詳しくみる</button>
-                </div>
-              </div>
-              </swiper-slide>
-          </swiper>
-          <div slot="pagination" class="swiper-pagination"/>
-          <div slot="button-prev" class="swiper-button-prev"/>
-          <div slot="button-next" class="swiper-button-next"/>
+                </swiper-slide>
+                <div slot="pagination" class="swiper-pagination"/>
+                <div slot="button-prev" class="swiper-button-prev"/>
+                <div slot="button-next" class="swiper-button-next"/>
+            </swiper>
+          </div>
         </div>
 			</div>
 		</div>
@@ -56,12 +56,12 @@ export default {
       swiperOption: {
         // effect: 'fade',
         loop: true,
-        autoplay: {
-          delay: 5000,
-        },
+        // autoplay: {
+        //   delay: 5000,
+        // },
         pagination: {
           el: '.swiper-pagination',
-          clickable: true
+          // clickable: true
         },
         navigation: {
           nextEl: '.swiper-button-next',
@@ -73,10 +73,8 @@ export default {
   },
   methods: {
     getBooks() {
-      console.log(8)
       BookApi.getBooks().then(res => {
-        console.log(55)
-        console.log(res)
+        // console.log(res)
         this.postData = res
       }).catch(err => {
         console.log(err)
@@ -92,20 +90,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.div-slide {
+  width: 500px;
+}
 
 /*----------------------------*\
 	Section
 \*----------------------------*/
 
 .section {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  // padding-top: 30px;
+  // padding-bottom: 30px;
 }
 
 .section-title {
-  position: relative;
-  margin-bottom: 30px;
-  margin-top: 15px;
+  // position: relative;
+  // margin-bottom: 30px;
+  // margin-top: 15px;
 }
 
 .section-title .title {
@@ -229,11 +230,12 @@ export default {
   box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
+  height: 280px;
 }
 
 .product:hover {
-  -webkit-box-shadow: 0px 0px 6px 0px #E4E7ED, 0px 0px 0px 2px #D10024;
-  box-shadow: 0px 0px 6px 0px #E4E7ED, 0px 0px 0px 2px #D10024;
+  // -webkit-box-shadow: 0px 0px 6px 0px #E4E7ED, 0px 0px 0px 2px #D10024;
+  // box-shadow: 0px 0px 6px 0px #E4E7ED, 0px 0px 0px 2px #D10024;
 }
 
 .product .product-img {
@@ -276,6 +278,10 @@ export default {
   z-index: 20;
 }
 
+.product .product-body > a :hover{
+  cursor: pointer;
+}
+
 .product .product-body .product-category {
   // text-transform: uppercase;
   font-size: 12px;
@@ -285,118 +291,109 @@ export default {
 .product .product-body .product-name {
   // text-transform: uppercase;
   font-size: 14px;
+  height: 25px;
 }
 
 .product .product-body .product-name>a {
   font-weight: 700;
 }
-
-.product .product-body .product-name>a:hover, .product .product-body .product-name>a:focus {
-  color: #D10024;
+.product-name:hover{
+  cursor: pointer !important;
 }
 
-.product .product-body .product-price {
-  color: #D10024;
-  font-size: 18px;
-}
+// .product .product-body .product-name>a:hover, .product .product-body .product-name>a:focus {
+//   color: #D10024;
+// }
 
-.product .product-body .product-price .product-old-price {
-  font-size: 70%;
-  font-weight: 400;
-  color: #8D99AE;
-}
+// .product .product-body .product-price {
+//   color: #D10024;
+//   font-size: 18px;
+// }
 
-.product .product-body .product-rating {
-  position: relative;
-  margin: 15px 0px 10px;
-  height: 20px;
-}
+// .product .product-body .product-price .product-old-price {
+//   font-size: 70%;
+//   font-weight: 400;
+//   color: #8D99AE;
+// }
 
-.product .product-body .product-rating>i {
-  position: relative;
-  width: 14px;
-  margin-right: -4px;
-  background: #FFF;
-  color: #E4E7ED;
-  z-index: 10;
-}
+// .product .product-body .product-rating {
+//   position: relative;
+//   margin: 15px 0px 10px;
+//   height: 20px;
+// }
 
-.product .product-body .product-rating>i.fa-star {
-  color: #ef233c;
-}
+// .product .product-body .product-rating:after {
+//   content: "";
+//   position: absolute;
+//   top: 50%;
+//   left: 0;
+//   right: 0;
+//   -webkit-transform: translateY(-50%);
+//   -ms-transform: translateY(-50%);
+//   transform: translateY(-50%);
+//   height: 1px;
+//   background-color: #E4E7ED;
+// }
 
-.product .product-body .product-rating:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  height: 1px;
-  background-color: #E4E7ED;
-}
+// .product .product-body .product-btns>button {
+//   position: relative;
+//   width: 40px;
+//   height: 40px;
+//   line-height: 40px;
+//   background: transparent;
+//   border: none;
+//   -webkit-transition: 0.2s all;
+//   transition: 0.2s all;
+// }
 
-.product .product-body .product-btns>button {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  background: transparent;
-  border: none;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
+// .product .product-body .product-btns>button:hover {
+//   background-color: #E4E7ED;
+//   color: #D10024;
+//   border-radius: 50%;
+// }
 
-.product .product-body .product-btns>button:hover {
-  background-color: #E4E7ED;
-  color: #D10024;
-  border-radius: 50%;
-}
+// .product .product-body .product-btns>button .tooltipp {
+//   position: absolute;
+//   bottom: 100%;
+//   left: 50%;
+//   -webkit-transform: translate(-50%, -15px);
+//   -ms-transform: translate(-50%, -15px);
+//   transform: translate(-50%, -15px);
+//   width: 150px;
+//   padding: 10px;
+//   font-size: 12px;
+//   line-height: 10px;
+//   background: #1e1f29;
+//   color: #FFF;
+//   text-transform: uppercase;
+//   z-index: 10;
+//   opacity: 0;
+//   visibility: hidden;
+//   -webkit-transition: 0.2s all;
+//   transition: 0.2s all;
+// }
 
-.product .product-body .product-btns>button .tooltipp {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -15px);
-  -ms-transform: translate(-50%, -15px);
-  transform: translate(-50%, -15px);
-  width: 150px;
-  padding: 10px;
-  font-size: 12px;
-  line-height: 10px;
-  background: #1e1f29;
-  color: #FFF;
-  text-transform: uppercase;
-  z-index: 10;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
-
-.product .product-body .product-btns>button:hover .tooltipp {
-  opacity: 1;
-  visibility: visible;
-  -webkit-transform: translate(-50%, -5px);
-  -ms-transform: translate(-50%, -5px);
-  transform: translate(-50%, -5px);
-}
+// .product .product-body .product-btns>button:hover .tooltipp {
+//   opacity: 1;
+//   visibility: visible;
+//   -webkit-transform: translate(-50%, -5px);
+//   -ms-transform: translate(-50%, -5px);
+//   transform: translate(-50%, -5px);
+// }
 
 .product .add-to-cart {
-  position: absolute;
-  left: 1px;
-  right: 1px;
-  bottom: 1px;
+  // position: absolute;
+  // left: 1px;
+  // right: 1px;
+  // bottom: 1px;
   padding: 15px;
   background: #1e1f29;
   text-align: center;
-  -webkit-transform: translateY(0%);
-  -ms-transform: translateY(0%);
-  transform: translateY(0%);
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
+  // -webkit-transform: translateY(0%);
+  // -ms-transform: translateY(0%);
+  // transform: translateY(0%);
+  // -webkit-transition: 0.2s all;
+  // transition: 0.2s all;
   z-index: 2;
 }
 
@@ -407,30 +404,28 @@ export default {
 // }
 
 .product .add-to-cart .add-to-cart-btn {
-  position: relative;
+  // position: relative;
   border: 2px solid transparent;
   height: 40px;
   padding: 0 10%;
   background-color: #ef233c;
   color: #FFF;
-  // text-transform: uppercase;
-  // font-weight: 700;
   border-radius: 40px;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
+  // -webkit-transition: 0.2s all;
+  // transition: 0.2s all;
 }
 
-.product .add-to-cart .add-to-cart-btn>i {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  line-height: 38px;
-  color: #D10024;
-  opacity: 0;
-  visibility: hidden;
-}
+// .product .add-to-cart .add-to-cart-btn>i {
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   width: 40px;
+//   height: 40px;
+//   line-height: 38px;
+//   color: #D10024;
+//   opacity: 0;
+//   visibility: hidden;
+// }
 
 .product .add-to-cart .add-to-cart-btn:hover {
   background-color: #FFF;
@@ -440,64 +435,9 @@ export default {
   cursor: pointer;
 }
 
-.product .add-to-cart .add-to-cart-btn:hover>i {
-  opacity: 1;
-  visibility: visible;
-}
-
-
-/*----------------------------*\
-	Products slick
-\*----------------------------*/
-.products-slick {
-  display: flex;
-}
-
-.products-slick .slick-list {
-  padding-bottom: 60px;
-  margin-bottom: -60px;
-  z-index: 2;
-}
-
-.products-slick .product.slick-slide {
-  margin: 15px;
-}
-
-.products-tabs>.tab-pane {
-  display: block;
-  height: 0;
-  opacity: 0;
-  visibility: hidden;
-  overflow-y: hidden;
-  padding-bottom: 60px;
-  margin-bottom: -60px;
-}
-
-.products-tabs>.tab-pane.active {
-  opacity: 1;
-  visibility: visible;
-  height: auto;
-}
-
-.products-slick-nav {
-  position: absolute;
-  right: 15px;
-  z-index: 10;
-}
-
-.products-slick-nav .slick-prev, .products-slick-nav .slick-next {
-  position: static;
-  -webkit-transform: none;
-  -ms-transform: none;
-  transform: none;
-  width: 20px;
-  height: 20px;
-  display: inline-block !important;
-  margin: 0px 2px;
-}
-
-.products-slick-nav .slick-prev:before, .products-slick-nav .slick-next:before {
-  font-size: 14px;
-}
+// .product .add-to-cart .add-to-cart-btn:hover>i {
+//   opacity: 1;
+//   visibility: visible;
+// }
 
 </style>

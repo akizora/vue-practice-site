@@ -1,16 +1,16 @@
 <template>
-  <footer id="bottom-footer" class="mt-5 w-100">
-    <div class="container">
-      <div class="row">
+  <div id="bottom-footer" class="mt-5 w-100">
+    <!-- <div class="container">
+      <div class="row"> -->
         <div class="text-center">
-          <ul class="footer-payments h-100">
-          </ul>
+          <!-- <ul class="footer-payments h-100">
+          </ul> -->
           <span class="copyright">
           </span>
         </div>
-      </div>
-    </div>
-  </footer>
+      <!-- </div>
+    </div> -->
+  </div>
 </template>
 
 <style lang="scss" scoped>

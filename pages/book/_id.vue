@@ -39,8 +39,8 @@ export default {
   data () {
     return {
       // bookInfo: []
-      bookInfo: this.getBook(this.$route.query.id),
-      relatePosts: this.getBookPost(this.$route.query.id),
+      bookInfo: this.getBook(this.$route.params.id),
+      relatePosts: this.getBookPost(this.$route.params.id),
       postInfo: null,
     }
   },
