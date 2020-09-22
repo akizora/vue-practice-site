@@ -41,7 +41,7 @@ export default {
   */
   plugins: [
     { src: '@/plugins/axios/index'},
-    { src: '~/plugins/vue-awesome-swiper', ssr: false , mode: 'client'}
+    { src: '~/plugins/vue-awesome-swiper'}
   ],
   /*
   ** Auto import components

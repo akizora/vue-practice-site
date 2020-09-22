@@ -1,36 +1,45 @@
 <template>
 	<div class="section">
+          <!-- <swiper>
+            <swiper-slide>スライダー１</swiper-slide>
+            <swiper-slide>スライダー２</swiper-slide>
+            <swiper-slide>スライダー３</swiper-slide>
+          </swiper> -->
+
 		<div class="container">
 				<div class="col-md-12">
 					<div class="section-title">
 						<h3 class="title">最近紹介された書籍</h3>
+            <!-- <p>最終更新日時</p>pme -->
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
 							</ul>
 						</div>
 					</div>
 				</div>
-        <div class="products-slick row" data-nav="#slick-nav-1">
-          <div class="product col" v-for="item in this.postData" :key="item.id">
-            <div class="product-img">
-              <div class="product-label">
+        <div class="products-slick" data-nav="#slick-nav-1">
+          <swiper :options="swiperOption">
+              <swiper-slide v-for="item in this.postData" :key="item.id">
+              <div class="product" >
+                <div class="product-img">
+                  <div class="product-label">
+                  </div>
+                </div>
+                <div class="product-body">
+                  <a target="_blank" @click="$router.push({ path: 'book', query: { id : item.id }})"><img border="0" :src=item.img_url ></a><img src="https://images-na.ssl-images-amazon.com/images/P/4295009792.09.TZZZZZZZ.jpg" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+                  <h3 class="product-name"><a @click="$router.push({ path: 'book', query: { id : item.id }})">{{ item.book_name }}</a></h3>
+                  <div class="product-rating">
+                  </div>
+                </div>
+                <div class="add-to-cart">
+                  <button class="add-to-cart-btn" @click="$router.push({ path: 'book', query: { id : item.id }})" ><i class="fa fa-shopping-cart"></i>詳しくみる</button>
+                </div>
               </div>
-            </div>
-            <div class="product-body">
-              <a target="_blank" @click="$router.push({ path: 'book', query: { id : item.id }})"><img border="0" :src=item.img_url ></a><img src="https://images-na.ssl-images-amazon.com/images/P/4295009792.09.TZZZZZZZ.jpg" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-              <h3 class="product-name"><a @click="$router.push({ path: 'book', query: { id : item.id }})">{{ item.book_name }}</a></h3>
-              <div class="product-rating">
-              </div>
-              <div class="product-btns">
-                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-              </div>
-            </div>
-            <div class="add-to-cart">
-              <button class="add-to-cart-btn" @click="$router.push({ path: 'book', query: { id : item.id }})" ><i class="fa fa-shopping-cart"></i>詳しくみる</button>
-            </div>
-          </div>
+              </swiper-slide>
+          </swiper>
+          <div slot="pagination" class="swiper-pagination"/>
+          <div slot="button-prev" class="swiper-button-prev"/>
+          <div slot="button-next" class="swiper-button-next"/>
         </div>
 			</div>
 		</div>
@@ -43,7 +52,23 @@ export default {
   data () {
     return {
       postData: null,
-      story: { content: {} }
+      story: { content: {} },
+      swiperOption: {
+        // effect: 'fade',
+        loop: true,
+        autoplay: {
+          delay: 5000,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        slidesPerView: 3,
+      },
     }
   },
   methods: {

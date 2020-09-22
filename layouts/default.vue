@@ -2,10 +2,10 @@
   <div class="h-100">
     <top-header/>
     <top-nav/>
-    <main id="main" role="main">
-      <nuxt/>
-      <bottom-footer/>
-    </main>
+    <!-- <main id="main" role="main"> -->
+    <nuxt/>
+    <!-- </main> -->
+    <bottom-footer/>
   </div>
 </template>
 <script>
@@ -36,5 +36,13 @@ export default {
 }
 .body-class {
   height: 100%;
+}
+#__nuxt {
+  // height: 100%
+  min-height: 100vh;
+  position: relative;
+}
+#__layout {
+  height: 100%
 }
 </style>
