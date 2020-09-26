@@ -4,7 +4,7 @@
 			<!-- <div class="row"> -->
 				<div class="col-md-12">
 					<div class="section-title">
-						<h3 class="title">最近紹介された書籍</h3>
+						<h3 class="title">書籍</h3>
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
 								<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
