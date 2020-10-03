@@ -91,5 +91,9 @@ export default {
   env: {
     API_KEY,
     BASE_URL,
+  },
+  // netlify対応 SPAだとpage not foundになる
+  generate: {
+    fallback: true
   }
 }
