@@ -90,6 +90,20 @@
 			</div>
 		</div>
 </template>
+<script>
+
+export default {
+    data () {
+      return {
+
+      }
+    },
+    created () {
+      // console.log(baseUrl)
+      console.log(process.env.BASE_URL)
+}
+}
+</script>
 
 <style lang="scss" scoped>
 

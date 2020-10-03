@@ -21,7 +21,7 @@ export default {
   mounted () {
   },
   async asyncData (context) {
-    const data = await context.app.$axios.$get('http://localhost:8000/api/books')
+    const data = await context.app.$axios.$get(process.env.BASE_URL + '/api/books')
       return {
         data
       }

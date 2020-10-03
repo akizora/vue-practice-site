@@ -1,3 +1,5 @@
+require('dotenv').config()
+const { API_KEY, BASE_URL } = process.env
 
 export default {
   /*
@@ -86,4 +88,8 @@ export default {
   fontawesome: {
     component: 'fa'
   },
+  env: {
+    API_KEY,
+    BASE_URL,
+  }
 }
