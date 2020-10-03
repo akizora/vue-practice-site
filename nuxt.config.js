@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { API_KEY, BASE_URL } = process.env
+const { API_KEY, BASE_URL, NODE_ENV } = process.env
 
 export default {
   /*
@@ -91,6 +91,7 @@ export default {
   env: {
     API_KEY,
     BASE_URL,
+    NODE_ENV,
   },
   // netlify対応 SPAだとpage not foundになる
   generate: {
