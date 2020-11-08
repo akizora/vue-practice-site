@@ -2,8 +2,8 @@
 	<div class="section">
 		<div class="container">
 				<div class="row">
-					<div class="col-md-12 section-title mt-5">
-						<h3 class="title">人気の書籍</h3>
+					<div class="col-md-12 section-title mt-1">
+						<h5 class="title">人気の書籍</h5>
             <!-- <p>最終更新日時</p>pme -->
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
@@ -15,7 +15,7 @@
           <div class="col-sm-12 div-slide w-100">
             <swiper :options="swiperOption">
                 <swiper-slide v-for="item in this.postData" :key="item.id" class="h-100">
-                  <div class="product my-5">
+                  <div class="product mt-2 mb-5">
                     <div class="product-body">
                       <nuxt-link :to="`/book/${item.id}`">
                       <!-- <a @click="$router.push({ path: 'book', query: { id : item.id }})"> -->
