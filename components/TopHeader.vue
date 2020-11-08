@@ -1,32 +1,65 @@
 <template>
-  <header class="top-header util__flex util__container">
-    <nav class="top-header__col">
-      <ul class="nav">
-        <li>
-          <nuxt-link class="nav__item" to="/">Home</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link class="nav__item" to="/en/blog">Blog</nuxt-link>
-        </li>
-      </ul>
-    </nav>
-    <a href="/" class="top-header__col top-header__logo">
-      <img src="http://a.storyblok.com/f/42016/1096x313/0353bf6654/logo2.png">
-    </a>
-    <nav class="top-header__col top-header__second-navi">
-      <ul class="nav">
-        <li>
-          <nuxt-link class="nav__item" to="/en/blog">English</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link class="nav__item" to="/de/blog">German</nuxt-link>
-        </li>
-      </ul>
-    </nav>
+  <header>
+    <div id="top-header">
+      <div class="container d-flex">
+        <ul class="header-links my-1">
+          <li><a href="/"><i class="fa"></i>Qiita本</a></li>
+          <!-- <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+          <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li> -->
+        </ul>
+        <ul class="header-links pull-right float-right">
+          <!-- <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+          <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li> -->
+        </ul>
+      </div>
+    </div>
+    <div id="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="header-search">
+              <form class="text-center">
+                <input class="input-select w-50" placeholder="本をさがす">
+                <button class="search-btn">さがす</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+/*----------------------------*\
+	Inputs
+\*----------------------------*/
+
+/*-- Text input --*/
+
+.input {
+  height: 40px;
+  padding: 0px 15px;
+  border: 1px solid #E4E7ED;
+  background-color: #FFF;
+  width: 100%;
+}
+
+textarea.input {
+  padding: 15px;
+  min-height: 90px;
+}
+
+/*----------------------------*\
+	Top header
+\*----------------------------*/
+
+  #top-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #1E1F29;
+  }
+
   .top-header {
     justify-content: space-between;
     padding-top: 30px;
@@ -46,7 +79,256 @@
     }
   }
 
+  /*----------------------------*\
+    Logo
+  \*----------------------------*/
+
+  #header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #15161D;
+  }
+
+  .header-logo {
+    float: left;
+  }
+
+  .header-logo .logo img {
+    display: block;
+  }
+
+  /*----------------------------*\
+    Search
+  \*----------------------------*/
+
+  .header-search {
+    padding: 15px 0px;
+  }
+
+  .header-search form {
+    position: relative;
+  }
+
+  .header-search form .input-select {
+    margin-right: -4px;
+    border-radius: 40px 0px 0px 40px;
+  }
+
+  .header-search form .input {
+    width: calc(100% - 260px);
+    margin-right: -4px;
+  }
+
+  .header-search form .search-btn {
+    height: 40px;
+    width: 90px;
+    background: #D10024;
+    color: #FFF;
+    font-weight: 700;
+    border: none;
+    border-radius: 0px 40px 40px 0px;
+  }
+
+  /*-- Select input --*/
+  .input-select {
+    padding: 0px 15px;
+    background: #FFF;
+    border: 1px solid #E4E7ED;
+    height: 40px;
+  }
+
+  .product-details .product-options .input-select {
+    width: 90px;
+  }
+
+  .header-search form .input-select {
+    margin-right: -4px;
+    border-radius: 40px 0px 0px 40px;
+  }
+
+  .header-search form .input {
+    width: calc(100% - 260px);
+    margin-right: -4px;
+  }
+
+  /*----------------------------*\
+    Cart
+  \*----------------------------*/
+
+  .header-ctn {
+    float: right;
+    padding: 15px 0px;
+  }
+
+  .header-ctn>div {
+    display: inline-block;
+  }
+
+  .header-ctn>div+div {
+    margin-left: 15px;
+  }
+
+  .header-ctn>div>a {
+    display: block;
+    position: relative;
+    width: 90px;
+    text-align: center;
+    color: #FFF;
+  }
+
+  .header-ctn div a i {
+    display: block;
+    font-size: 18px;
+  }
+
+  .header-ctn div a span {
+    font-size: 12px;
+  }
+
+  .header-ctn div a .qty {
+    position: absolute;
+    right: 15px;
+    top: -10px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 10px;
+    color: #FFF;
+    background-color: #D10024;
+  }
+
+  .header-ctn .menu-toggle {
+    display: none;
+  }
+
+  .cart-dropdown {
+    position: absolute;
+    width: 300px;
+    background: #FFF;
+    padding: 15px;
+    -webkit-box-shadow: 0px 0px 0px 2px #E4E7ED;
+    box-shadow: 0px 0px 0px 2px #E4E7ED;
+    z-index: 99;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .dropdown.open>.cart-dropdown {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .cart-dropdown .cart-list {
+    max-height: 180px;
+    overflow-y: scroll;
+    margin-bottom: 15px;
+  }
+
+  .cart-dropdown .cart-list .product-widget {
+    padding: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .cart-dropdown .cart-list .product-widget:last-child {
+    margin-bottom: 0px;
+  }
+
+  .cart-dropdown .cart-list .product-widget .product-img {
+    left: 0px;
+    top: 0px;
+  }
+
+  .cart-dropdown .cart-list .product-widget .product-body .product-price {
+    color: #2B2D42;
+  }
+
+  .cart-dropdown .cart-btns {
+    margin: 0px -17px -17px;
+  }
+
+  .cart-dropdown .cart-btns>a {
+    display: inline-block;
+    width: calc(50% - 0px);
+    padding: 12px;
+    background-color: #D10024;
+    color: #FFF;
+    text-align: center;
+    font-weight: 700;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+  }
+
+  .cart-dropdown .cart-btns>a:first-child {
+    margin-right: -4px;
+    background-color: #1e1f29;
+  }
+
+  .cart-dropdown .cart-btns>a:hover {
+    opacity: 0.9;
+  }
+
+  .cart-dropdown .cart-summary {
+    border-top: 1px solid #E4E7ED;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .header-links li {
+    display: inline-block;
+    // margin-right: 15px;
+    font-size: 12px;
+  }
+
+  .header-links li:last-child {
+    // margin-right: 0px;
+  }
+
+  .header-links li a {
+    color: #FFF;
+  }
+
+  .header-links li a:hover {
+    color: #D10024;
+  }
+
+  .header-links li i {
+    color: #D10024;
+    // margin-right: 5px;
+  }
+
   .top-header__second-navi {
     text-align: right;
   }
+
+  @media only screen and (max-width: 991px) {
+  #top-header .header-links.pull-left {
+    float: none !important;
+  }
+  #top-header .header-links.pull-right {
+    float: none !important;
+    // margin-top: 5px;
+  }
+  .header-logo {
+    float: none;
+    text-align: center;
+  }
+  .header-logo .logo {
+    display: inline-block;
+  }
+  #product-imgs {
+    margin-bottom: 60px;
+    margin-top: 15px;
+  }
+  #rating {
+    text-align: center;
+  }
+  #reviews {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
 </style>

@@ -9,7 +9,19 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.14.0"
+    "axios": "^0.20.0",
+    "bootstrap": "^4.5.2",
+    "bootstrap-vue": "^2.16.0",
+    "node-sass": "^4.14.1",
+    "nuxt": "^2.14.0",
+    "nuxt-fontawesome": "^0.4.0",
+    "sass-loader": "^10.0.1",
+    "storyblok-nuxt": "^1.2.0",
+    "swiper": "^6.2.0",
+    "vue-awesome-swiper": "^4.1.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/proxy": "^2.0.1"
+  }
 }
