@@ -1,116 +1,111 @@
 <template>
 	<div class="section">
 		<div class="container">
-			<!-- <div class="row"> -->
-				<div class="col-md-12">
-					<div class="section-title">
-						<h3 class="title">書籍</h3>
+				<div class="row">
+					<div class="col-md-12 section-title mt-5">
+						<h3 class="title">人気の書籍</h3>
+            <!-- <p>最終更新日時</p>pme -->
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
-								<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-								<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-								<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
-				<!-- Products tab & slick -->
-				<!-- <div class="col-md-12"> -->
-					<!-- <div class="row"> -->
-						<!-- <div class="products-tabs"> -->
-							<!-- tab -->
-							<!-- <div id="tab1" class="tab-pane active"> -->
-                <div class="products-slick" data-nav="#slick-nav-1">
-                      <!-- product -->
-                      <div class="product">
-                        <div class="product-img">
-                          <div class="product-label">
-                            <span class="sale">-30%</span>
-                            <span class="new">NEW</span>
-                          </div>
-                        </div>
-                        <div class="product-body">
-                          <p class="product-category">Category</p>
-                          <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                          <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                          <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                          </div>
-                          <div class="product-btns">
-                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                          </div>
-                        </div>
-                        <div class="add-to-cart">
-                          <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                        </div>
-                      </div>
-                      <!-- /product -->
-                      <!-- product -->
-                      <div class="product">
-                        <div class="product-img">
-                          <div class="product-label">
-                            <span class="new">NEW</span>
-                          </div>
-                        </div>
-                        <div class="product-body">
-                          <p class="product-category">Category</p>
-                          <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                          <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                          <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                          </div>
-                          <div class="product-btns">
-                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                          </div>
-                        </div>
-                        <div class="add-to-cart">
-                          <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                        </div>
-                      </div>
-                      <!-- /product -->
-								</div>
-							<!-- </div> -->
-							<!-- /tab -->
-						<!-- </div> -->
-					<!-- </div> -->
-				<!-- </div> -->
-				<!-- Products tab & slick -->
+        <div class="row">
+          <div class="col-sm-12 div-slide w-100">
+            <swiper :options="swiperOption">
+                <swiper-slide v-for="item in this.postData" :key="item.id" class="h-100">
+                  <div class="product my-5">
+                    <div class="product-body">
+                      <nuxt-link :to="`/book/${item.id}`">
+                      <!-- <a @click="$router.push({ path: 'book', query: { id : item.id }})"> -->
+                        <img border="0" :src=item.img_url >
+                      <!-- </a> -->
+                      </nuxt-link>
+                      <h3 class="product-name">
+                        <!-- <a @click="$router.push({ path: 'book', query: { id : item.id }})">{{ item.book_name }}</a> -->
+                        <nuxt-link :to="`/book/${item.id}`">{{ item.book_name }}
+                        </nuxt-link>
+                      </h3>
+                    </div>
+                    <div class="add-to-cart">
+                      <nuxt-link class="add-to-cart-btn" :to="`/book/${item.id}`" >
+                        詳しくみる
+                      </nuxt-link>
+                    </div>
+                  </div>
+                </swiper-slide>
+                <div slot="pagination" class="swiper-pagination"/>
+                <div slot="button-prev" class="swiper-button-prev"/>
+                <div slot="button-next" class="swiper-button-next"/>
+            </swiper>
+          </div>
+        </div>
 			</div>
 		</div>
 </template>
 
+<script>
+import BookApi from '@/plugins/axios/modules/book'
+
+export default {
+  data () {
+    return {
+      postData: null,
+      story: { content: {} },
+      swiperOption: {
+        // effect: 'fade',
+        loop: true,
+        // autoplay: {
+        //   delay: 5000,
+        // },
+        pagination: {
+          el: '.swiper-pagination',
+          // clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        slidesPerView: 5,
+      },
+    }
+  },
+  methods: {
+    getBooks() {
+      BookApi.getBooks().then(res => {
+        // console.log(res)
+        this.postData = res
+      }).catch(err => {
+        console.log(err)
+      })
+    }
+  },
+  created () {
+    this.getBooks()
+  },
+  mounted () {
+  }
+}
+</script>
+
 <style lang="scss" scoped>
+.div-slide {
+  width: 500px;
+}
 
 /*----------------------------*\
 	Section
 \*----------------------------*/
 
 .section {
-  padding-top: 30px;
-  padding-bottom: 30px;
 }
 
 .section-title {
-  position: relative;
-  margin-bottom: 30px;
-  margin-top: 15px;
 }
 
 .section-title .title {
   display: inline-block;
-  text-transform: uppercase;
   margin: 0px;
 }
 
@@ -175,7 +170,6 @@
   margin-top: 0px;
   margin-bottom: 0px;
   margin-right: 15px;
-  text-transform: uppercase;
 }
 
 #breadcrumb .breadcrumb-tree {
@@ -186,7 +180,6 @@
   display: inline-block;
   font-size: 12px;
   font-weight: 500;
-  text-transform: uppercase;
 }
 
 #breadcrumb .breadcrumb-tree li+li {
@@ -229,11 +222,10 @@
   box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
+  height: 280px;
 }
 
 .product:hover {
-  -webkit-box-shadow: 0px 0px 6px 0px #E4E7ED, 0px 0px 0px 2px #D10024;
-  box-shadow: 0px 0px 6px 0px #E4E7ED, 0px 0px 0px 2px #D10024;
 }
 
 .product .product-img {
@@ -269,234 +261,58 @@
 }
 
 .product .product-body {
-  // position: relative;
   padding: 15px;
   background-color: #FFF;
   text-align: center;
   z-index: 20;
 }
 
+.product .product-body > a :hover{
+  cursor: pointer;
+}
+
 .product .product-body .product-category {
-  text-transform: uppercase;
   font-size: 12px;
   color: #8D99AE;
 }
 
 .product .product-body .product-name {
-  text-transform: uppercase;
   font-size: 14px;
+  height: 25px;
 }
 
 .product .product-body .product-name>a {
   font-weight: 700;
 }
-
-.product .product-body .product-name>a:hover, .product .product-body .product-name>a:focus {
-  color: #D10024;
-}
-
-.product .product-body .product-price {
-  color: #D10024;
-  font-size: 18px;
-}
-
-.product .product-body .product-price .product-old-price {
-  font-size: 70%;
-  font-weight: 400;
-  color: #8D99AE;
-}
-
-.product .product-body .product-rating {
-  position: relative;
-  margin: 15px 0px 10px;
-  height: 20px;
-}
-
-.product .product-body .product-rating>i {
-  position: relative;
-  width: 14px;
-  margin-right: -4px;
-  background: #FFF;
-  color: #E4E7ED;
-  z-index: 10;
-}
-
-.product .product-body .product-rating>i.fa-star {
-  color: #ef233c;
-}
-
-.product .product-body .product-rating:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  height: 1px;
-  background-color: #E4E7ED;
-}
-
-.product .product-body .product-btns>button {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  background: transparent;
-  border: none;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
-
-.product .product-body .product-btns>button:hover {
-  background-color: #E4E7ED;
-  color: #D10024;
-  border-radius: 50%;
-}
-
-.product .product-body .product-btns>button .tooltipp {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -15px);
-  -ms-transform: translate(-50%, -15px);
-  transform: translate(-50%, -15px);
-  width: 150px;
-  padding: 10px;
-  font-size: 12px;
-  line-height: 10px;
-  background: #1e1f29;
-  color: #FFF;
-  text-transform: uppercase;
-  z-index: 10;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
-
-.product .product-body .product-btns>button:hover .tooltipp {
-  opacity: 1;
-  visibility: visible;
-  -webkit-transform: translate(-50%, -5px);
-  -ms-transform: translate(-50%, -5px);
-  transform: translate(-50%, -5px);
+.product-name:hover{
+  cursor: pointer !important;
 }
 
 .product .add-to-cart {
-  position: absolute;
-  left: 1px;
-  right: 1px;
-  bottom: 1px;
-  padding: 15px;
+  padding: 10px 0;
   background: #1e1f29;
   text-align: center;
-  -webkit-transform: translateY(0%);
-  -ms-transform: translateY(0%);
-  transform: translateY(0%);
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
   z-index: 2;
 }
 
-.product:hover .add-to-cart {
-  -webkit-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  transform: translateY(100%);
-}
-
 .product .add-to-cart .add-to-cart-btn {
-  position: relative;
+  // position: relative;
   border: 2px solid transparent;
   height: 40px;
-  padding: 0 30px;
+  padding: 0 10%;
   background-color: #ef233c;
   color: #FFF;
-  text-transform: uppercase;
-  font-weight: 700;
   border-radius: 40px;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
-
-.product .add-to-cart .add-to-cart-btn>i {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  line-height: 38px;
-  color: #D10024;
-  opacity: 0;
-  visibility: hidden;
+  // -webkit-transition: 0.2s all;
+  // transition: 0.2s all;
+  text-decoration: none;
 }
 
 .product .add-to-cart .add-to-cart-btn:hover {
   background-color: #FFF;
   color: #D10024;
   border-color: #D10024;
-  padding: 0px 30px 0px 50px;
+  // padding: 0px 30px 0px 50px;
+  cursor: pointer;
 }
-
-.product .add-to-cart .add-to-cart-btn:hover>i {
-  opacity: 1;
-  visibility: visible;
-}
-
-
-/*----------------------------*\
-	Products slick
-\*----------------------------*/
-.products-slick {
-  display: flex;
-}
-
-.products-slick .slick-list {
-  padding-bottom: 60px;
-  margin-bottom: -60px;
-  z-index: 2;
-}
-
-.products-slick .product.slick-slide {
-  margin: 15px;
-}
-
-.products-tabs>.tab-pane {
-  display: block;
-  height: 0;
-  opacity: 0;
-  visibility: hidden;
-  overflow-y: hidden;
-  padding-bottom: 60px;
-  margin-bottom: -60px;
-}
-
-.products-tabs>.tab-pane.active {
-  opacity: 1;
-  visibility: visible;
-  height: auto;
-}
-
-.products-slick-nav {
-  position: absolute;
-  right: 15px;
-  z-index: 10;
-}
-
-.products-slick-nav .slick-prev, .products-slick-nav .slick-next {
-  position: static;
-  -webkit-transform: none;
-  -ms-transform: none;
-  transform: none;
-  width: 20px;
-  height: 20px;
-  display: inline-block !important;
-  margin: 0px 2px;
-}
-
-.products-slick-nav .slick-prev:before, .products-slick-nav .slick-next:before {
-  font-size: 14px;
-}
-
 </style>
