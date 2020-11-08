@@ -39,7 +39,7 @@ export default {
 }
 #__nuxt {
   // height: 100%
-  min-height: 100vh;
+  min-height: 1200px;
   position: relative;
 }
 #__layout {
