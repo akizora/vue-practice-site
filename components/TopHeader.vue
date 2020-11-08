@@ -4,29 +4,10 @@
       <div class="container d-flex">
         <ul class="header-links my-1">
           <li><a href="/"><i class="fa"></i>Qiita本</a></li>
-          <!-- <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-          <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li> -->
-        </ul>
-        <ul class="header-links pull-right float-right">
-          <!-- <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-          <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li> -->
         </ul>
       </div>
     </div>
-    <div id="header">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="header-search">
-              <form class="text-center">
-                <input class="input-select w-50" placeholder="本をさがす">
-                <button class="search-btn">さがす</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <search-form/>
   </header>
 </template>
 
