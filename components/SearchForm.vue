@@ -3,11 +3,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="header-search">
-            <form class="text-center" method="get" action="/search">
-              <input class="input-select w-50" placeholder="本をさがす" name="keyword" :value="query">
-              <button type="submit" class="search-btn">さがす</button>
-            </form>
+          <div class="header-search text-center">
+            <input v-model="searchText" class="input-select w-50" placeholder="書籍名を入力">
+            <button class="search-btn" v-on:click="searchBooks">さがす</button>
           </div>
         </div>
       </div>
@@ -21,6 +19,7 @@ import BookApi from '@/plugins/axios/modules/book'
 export default {
   data() {
     return {
+      searchText:'',
       query: '',
     }
   },
@@ -30,6 +29,15 @@ export default {
   methods: {
     setQuery: function() {
       this.query = this.$route.query.id || ''
+    },
+    searchBooks: function() {
+      BookApi.searchBooks(this.searchText).then(res => {
+        console.log(res)
+        console.log(888)
+        this.$router.push('/aaa')
+      }).catch(err => {
+        console.log(err)
+      })
     }
   }
 }
@@ -54,21 +62,21 @@ export default {
     padding: 15px 0px;
   }
 
-  .header-search form {
+  .header-search {
     position: relative;
   }
 
-  .header-search form .input-select {
+  .header-search .input-select {
     margin-right: -4px;
     border-radius: 40px 0px 0px 40px;
   }
 
-  .header-search form .input {
+  .header-search .input {
     width: calc(100% - 260px);
     margin-right: -4px;
   }
 
-  .header-search form .search-btn {
+  .header-search .search-btn {
     height: 40px;
     width: 90px;
     background: #D10024;

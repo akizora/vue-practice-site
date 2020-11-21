@@ -7,9 +7,9 @@ export default {
 
   getBooks() {
     return axios.$get(`books`)
-  }
+  },
 
-  // searchBooks(search) {
-  //   return axios.$get(`search/${search}`)
-  // }
+  searchBooks(keyword) {
+    return axios.$get(`search/?keyword=${keyword}`)
+  }
 }
