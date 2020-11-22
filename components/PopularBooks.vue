@@ -13,12 +13,16 @@
       <div class="row">
         <div class="col-sm-12 div-slide w-100">
           <swiper :options="swiperOption">
-            <swiper-slide v-for="item in this.postData" :key="item.id" class="h-100">
+            <swiper-slide
+              v-for="item in this.postData"
+              :key="item.id"
+              class="h-100"
+            >
               <div class="product mt-2 mb-5">
                 <div class="product-body">
                   <nuxt-link :to="`/book/${item.id}`">
                     <!-- <a @click="$router.push({ path: "book", query: { id : item.id }})"> -->
-                    <img border="0" :src=item.img_url />
+                    <img border="0" :src="item.img_url" />
                     <!-- </a> -->
                   </nuxt-link>
                   <h3 class="product-name">

@@ -1,8 +1,7 @@
 <template>
   <div id="bottom-footer" class="mt-5 w-100">
     <div class="text-center">
-      <span class="copyright">
-      </span>
+      <span class="copyright" />
     </div>
   </div>
 </template>
@@ -13,7 +12,7 @@
 ===========================================================*/
 
 #footer {
-  background: #15161D;
+  background: #15161d;
   color: #b9babc;
 }
 

@@ -3,8 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 section-title mt-5">
-          <h5 class="title">最近紹介された書籍
-          </h5>
+          <h5 class="title">最近紹介された書籍</h5>
           <!-- <p>最終更新日時</p>pme -->
           <!-- <div class="section-nav">
             <ul class="section-tab-nav tab-nav"></ul>
@@ -22,10 +21,11 @@
               <div class="product mt-2 mb-5">
                 <div class="product-body">
                   <nuxt-link :to="`/book/${item.id}`">
-                    <img border="0" :src=item.img_url />
+                    <img border="0" :src="item.img_url" />
                   </nuxt-link>
                   <h3 class="product-name">
-                    <nuxt-link :to="`/book/${item.id}`">{{ item.book_name }}
+                    <nuxt-link :to="`/book/${item.id}`">
+                      {{ item.book_name }}
                     </nuxt-link>
                   </h3>
                 </div>
