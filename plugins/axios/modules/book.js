@@ -1,4 +1,4 @@
-import { axios } from '../index.js';
+import { axios } from "../index.js"
 
 export default {
   getBook(id) {
@@ -11,5 +11,5 @@ export default {
 
   searchBooks(keyword) {
     return axios.$get(`search/?keyword=${keyword}`)
-  }
+  },
 }

@@ -1,32 +1,29 @@
 <template>
   <div>
-    <top-header/>
-    <!-- <top-nav/> -->
-    <!-- <main id="main" role="main"> -->
-    <nuxt/>
-    <!-- </main> -->
-    <bottom-footer/>
+    <top-header />
+    <nuxt />
+    <bottom-footer />
   </div>
 </template>
 <script>
-import TopHeader from '~/components/TopHeader.vue'
-import TopNav from '~/components/TopNav.vue'
-import BottomFooter from '~/components/BottomFooter.vue'
+import TopHeader from "~/components/TopHeader.vue"
+// import TopNav from "~/components/TopNav.vue"
+import BottomFooter from "~/components/BottomFooter.vue"
 
 export default {
   components: {
-    TopNav,
+    // TopNav,
     TopHeader,
     BottomFooter,
   },
   head: {
     htmlAttrs: {
-      class: 'html-class'
+      class: "html-class",
     },
     bodyAttrs: {
-      class: 'body-class'
-    }
-  }
+      class: "body-class",
+    },
+  },
 }
 </script>
 
@@ -43,6 +40,6 @@ export default {
   position: relative;
 }
 #__layout {
-  height: 100%
+  height: 100%;
 }
 </style>
