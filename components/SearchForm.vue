@@ -4,12 +4,15 @@
       <div class="row">
         <div class="col-md-12">
           <div class="header-search text-center">
-            <input
-              v-model="searchText"
-              class="input-select w-50"
-              placeholder="書籍名を入力"
-            />
-            <button class="search-btn" @click="searchBooks">さがす</button>
+            <form @submit.prevent="searchBooks">
+              <input
+                v-model="query"
+                placeholder="キーワードを入力"
+                class="input-select w-50"
+              />
+              <!-- <input v-model="searchText" placeholder="書籍名を入力" /> -->
+              <button class="search-btn" @click="searchBooks">さがす</button>
+            </form>
           </div>
         </div>
       </div>
@@ -18,7 +21,7 @@
 </template>
 
 <script>
-import BookApi from "@/plugins/axios/modules/book"
+// import BookApi from "@/plugins/axios/modules/book"
 
 export default {
   data() {
@@ -35,30 +38,23 @@ export default {
       this.query = this.$route.query.id || ""
     },
     searchBooks: function () {
-      BookApi.searchBooks(this.searchText)
-        .then((res) => {
-          console.log(res)
-          console.log(888)
-          this.$router.push("/aaa")
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+      this.$router.push({ path: "/search", query: { q: this.query } })
+      this.query = ""
+      // BookApi.searchBooks(this.searchText)
+      //   .then((res) => {
+      //     console.log(res)
+      //     console.log(888)
+      //     this.$router.push("/aaa")
+      //   })
+      //   .catch((err) => {
+      //     console.log(err)
+      //   })
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-/*----------------------------*\
-  Logo
-\*----------------------------*/
-#header {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: #15161d;
-}
-
 /*----------------------------*\
   Search
 \*----------------------------*/
