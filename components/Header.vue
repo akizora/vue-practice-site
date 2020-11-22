@@ -29,7 +29,5 @@
 </template>
 
 <script>
-export default {
-  props: ["blok"],
-}
+export default {}
 </script>

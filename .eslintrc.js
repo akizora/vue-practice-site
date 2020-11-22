@@ -18,6 +18,8 @@ module.exports = {
     rules: {
       "semi": [2, "never"],
       "no-console": "off",
+      "vue/singleline-html-element-content-newline": "off",
+      "vue/multiline-html-element-content-newline": "off",
       "vue/max-attributes-per-line": "off",
       "vue/html-self-closing": ["error", {
         "html": {

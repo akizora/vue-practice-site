@@ -7,21 +7,17 @@
             <img
               class="rounded mx-auto d-block book-img"
               border="0"
-              :src="this.bookInfo.large_img_url"
+              :src="bookInfo.large_img_url"
             />
           </div>
         </div>
         <div class="col-sm-6">
           <div class="product-details">
             <h2 class="product-name">
-              {{ this.bookInfo.book_name }}
+              {{ bookInfo.book_name }}
             </h2>
             <p class="my-3">この本を紹介している記事</p>
-            <div
-              v-for="item in this.relatePosts"
-              :key="item.id"
-              class="product"
-            >
+            <div v-for="item in relatePosts" :key="item.id" class="product">
               <a :href="item.rendered_body">{{ item.title }}</a>
             </div>
             <!-- <ul class="product-links">
