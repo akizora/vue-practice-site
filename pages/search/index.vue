@@ -8,8 +8,16 @@
           <img :src="book.img_url" />
         </nuxt-link>
       </div>
-      <div class="col-sm-6">
-        {{ book.book_name }}
+      <div class="col-sm-6 d-block">
+        <div class="py-5">
+          {{ book.asin }}
+          {{ book.book_name }}
+        </div>
+        <div>
+          <nuxt-link class="add-to-cart-btn" :to="`/book/${book.id}`">
+            詳しくみる
+          </nuxt-link>
+        </div>
       </div>
       <!-- </div> -->
     </div>
