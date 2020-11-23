@@ -9,7 +9,6 @@
         </ul>
       </div>
     </div>
-    <book-search-form />
     <search-form />
   </header>
 </template>

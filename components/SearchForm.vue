@@ -7,7 +7,7 @@
             <form @submit.prevent="searchBooks">
               <input
                 v-model="query"
-                placeholder="キーワードを入力"
+                placeholder="書籍名を入力"
                 class="input-select w-50"
               />
               <!-- <input v-model="searchText" placeholder="書籍名を入力" /> -->
@@ -21,11 +21,10 @@
 </template>
 
 <script>
-// import BookApi from "@/plugins/axios/modules/book"
-
 export default {
   data() {
     return {
+      baseUrl: "/search",
       searchText: "",
       query: "",
     }
@@ -34,21 +33,15 @@ export default {
     this.setQuery()
   },
   methods: {
+    makeUrl(url, query) {
+      // 検索条件を元にURL作成
+      return "/search?q=" + query
+    },
     setQuery: function () {
       this.query = this.$route.query.id || ""
     },
     searchBooks: function () {
       this.$router.push({ path: "/search", query: { q: this.query } })
-      this.query = ""
-      // BookApi.searchBooks(this.searchText)
-      //   .then((res) => {
-      //     console.log(res)
-      //     console.log(888)
-      //     this.$router.push("/aaa")
-      //   })
-      //   .catch((err) => {
-      //     console.log(err)
-      //   })
     },
   },
 }

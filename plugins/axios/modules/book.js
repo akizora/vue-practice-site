@@ -10,6 +10,6 @@ export default {
   },
 
   searchBooks(keyword) {
-    return axios.$get(`search/?keyword=${keyword}`)
+    return axios.$get(`search/?q=${keyword}`)
   },
 }
