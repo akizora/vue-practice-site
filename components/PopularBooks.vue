@@ -1,91 +1,91 @@
 <template>
-	<div class="section">
-		<div class="container">
-				<div class="row">
-					<div class="col-md-12 section-title mt-1">
-						<h5 class="title">人気の書籍</h5>
-            <!-- <p>最終更新日時</p>pme -->
-						<div class="section-nav">
-							<ul class="section-tab-nav tab-nav">
-							</ul>
-						</div>
-					</div>
-				</div>
-        <div class="row">
-          <div class="col-sm-12 div-slide w-100">
-            <swiper :options="swiperOption">
-                <swiper-slide v-for="item in this.postData" :key="item.id" class="h-100">
-                  <div class="product mt-2 mb-5">
-                    <div class="product-body">
-                      <nuxt-link :to="`/book/${item.id}`">
-                      <!-- <a @click="$router.push({ path: 'book', query: { id : item.id }})"> -->
-                        <img border="0" :src=item.img_url >
-                      <!-- </a> -->
-                      </nuxt-link>
-                      <h3 class="product-name">
-                        <!-- <a @click="$router.push({ path: 'book', query: { id : item.id }})">{{ item.book_name }}</a> -->
-                        <nuxt-link :to="`/book/${item.id}`">{{ item.book_name }}
-                        </nuxt-link>
-                      </h3>
-                    </div>
-                    <div class="add-to-cart">
-                      <nuxt-link class="add-to-cart-btn" :to="`/book/${item.id}`" >
-                        詳しくみる
-                      </nuxt-link>
-                    </div>
-                  </div>
-                </swiper-slide>
-                <div slot="pagination" class="swiper-pagination"/>
-                <div slot="button-prev" class="swiper-button-prev"/>
-                <div slot="button-next" class="swiper-button-next"/>
-            </swiper>
-          </div>
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 section-title mt-1">
+          <h5 class="title">人気の書籍</h5>
+          <!-- <p>最終更新日時</p>pme -->
+          <!-- <div class="section-nav">
+            <ul class="section-tab-nav tab-nav"></ul>
+          </div> -->
         </div>
-			</div>
-		</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 div-slide w-100">
+          <swiper :options="swiperOption">
+            <swiper-slide v-for="item in postData" :key="item.id" class="h-100">
+              <div class="product mt-2 mb-5">
+                <div class="product-body">
+                  <nuxt-link :to="`/book/${item.id}`">
+                    <!-- <a @click="$router.push({ path: "book", query: { id : item.id }})"> -->
+                    <img border="0" :src="item.img_url" />
+                    <!-- </a> -->
+                  </nuxt-link>
+                  <h3 class="product-name">
+                    <!-- <a @click="$router.push({ path: "book", query: { id : item.id }})">{{ item.book_name }}</a> -->
+                    <nuxt-link :to="`/book/${item.id}`">
+                      {{ item.book_name }}
+                    </nuxt-link>
+                  </h3>
+                </div>
+                <div class="add-to-cart">
+                  <nuxt-link class="add-to-cart-btn" :to="`/book/${item.id}`">
+                    詳しくみる
+                  </nuxt-link>
+                </div>
+              </div>
+            </swiper-slide>
+            <div slot="pagination" class="swiper-pagination" />
+            <div slot="button-prev" class="swiper-button-prev" />
+            <div slot="button-next" class="swiper-button-next" />
+          </swiper>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import BookApi from '@/plugins/axios/modules/book'
+import BookApi from "@/plugins/axios/modules/book"
 
 export default {
-  data () {
+  data() {
     return {
       postData: null,
       story: { content: {} },
       swiperOption: {
-        // effect: 'fade',
+        // effect: "fade",
         loop: true,
         // autoplay: {
         //   delay: 5000,
         // },
         pagination: {
-          el: '.swiper-pagination',
+          el: ".swiper-pagination",
           // clickable: true
         },
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         },
         slidesPerView: 5,
       },
     }
   },
-  methods: {
-    getBooks() {
-      BookApi.getBooks().then(res => {
-        // console.log(res)
-        this.postData = res
-      }).catch(err => {
-        console.log(err)
-      })
-    }
-  },
-  created () {
+  created() {
     this.getBooks()
   },
-  mounted () {
-  }
+  methods: {
+    getBooks() {
+      BookApi.getBooks()
+        .then((res) => {
+          // console.log(res)
+          this.postData = res
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+  },
 }
 </script>
 
@@ -128,7 +128,7 @@ export default {
 
 .section-tab-nav li a {
   font-weight: 700;
-  color: #8D99AE;
+  color: #8d99ae;
 }
 
 .section-tab-nav li a:after {
@@ -136,16 +136,18 @@ export default {
   display: block;
   width: 0%;
   height: 2px;
-  background-color: #D10024;
+  background-color: #d10024;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
 }
 
 .section-tab-nav li.active a {
-  color: #D10024;
+  color: #d10024;
 }
 
-.section-tab-nav li a:hover:after, .section-tab-nav li a:focus:after, .section-tab-nav li.active a:after {
+.section-tab-nav li a:hover:after,
+.section-tab-nav li a:focus:after,
+.section-tab-nav li.active a:after {
   width: 100%;
 }
 
@@ -160,8 +162,8 @@ export default {
 
 #breadcrumb {
   padding: 30px 0px;
-  background: #FBFBFC;
-  border-bottom: 1px solid #E4E7ED;
+  background: #fbfbfc;
+  border-bottom: 1px solid #e4e7ed;
   margin-bottom: 30px;
 }
 
@@ -182,23 +184,23 @@ export default {
   font-weight: 500;
 }
 
-#breadcrumb .breadcrumb-tree li+li {
+#breadcrumb .breadcrumb-tree li + li {
   margin-left: 10px;
 }
 
-#breadcrumb .breadcrumb-tree li+li:before {
-  content: '/';
+#breadcrumb .breadcrumb-tree li + li:before {
+  content: "/";
   display: inline-block;
-  color: #8D99AE;
+  color: #8d99ae;
   margin-right: 10px;
 }
 
 #breadcrumb .breadcrumb-tree li a {
-  color: #8D99AE;
+  color: #8d99ae;
 }
 
 #breadcrumb .breadcrumb-tree li a:hover {
-  color: #D10024;
+  color: #d10024;
 }
 
 @media only screen and (max-width: 767px) {
@@ -218,8 +220,8 @@ export default {
 .product {
   position: relative;
   margin: 15px 0px;
-  -webkit-box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
-  box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
+  -webkit-box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
+  box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
   height: 280px;
@@ -232,7 +234,7 @@ export default {
   position: relative;
 }
 
-.product .product-img>img {
+.product .product-img > img {
   width: 100%;
 }
 
@@ -242,38 +244,38 @@ export default {
   right: 15px;
 }
 
-.product .product-img .product-label>span {
+.product .product-img .product-label > span {
   border: 2px solid;
   padding: 2px 10px;
   font-size: 12px;
 }
 
-.product .product-img .product-label>span.sale {
-  background-color: #FFF;
-  border-color: #D10024;
-  color: #D10024;
+.product .product-img .product-label > span.sale {
+  background-color: #fff;
+  border-color: #d10024;
+  color: #d10024;
 }
 
-.product .product-img .product-label>span.new {
-  background-color: #D10024;
-  border-color: #D10024;
-  color: #FFF;
+.product .product-img .product-label > span.new {
+  background-color: #d10024;
+  border-color: #d10024;
+  color: #fff;
 }
 
 .product .product-body {
   padding: 15px;
-  background-color: #FFF;
+  background-color: #fff;
   text-align: center;
   z-index: 20;
 }
 
-.product .product-body > a :hover{
+.product .product-body > a :hover {
   cursor: pointer;
 }
 
 .product .product-body .product-category {
   font-size: 12px;
-  color: #8D99AE;
+  color: #8d99ae;
 }
 
 .product .product-body .product-name {
@@ -281,10 +283,10 @@ export default {
   height: 25px;
 }
 
-.product .product-body .product-name>a {
+.product .product-body .product-name > a {
   font-weight: 700;
 }
-.product-name:hover{
+.product-name:hover {
   cursor: pointer !important;
 }
 
@@ -301,7 +303,7 @@ export default {
   height: 40px;
   padding: 0 10%;
   background-color: #ef233c;
-  color: #FFF;
+  color: #fff;
   border-radius: 40px;
   // -webkit-transition: 0.2s all;
   // transition: 0.2s all;
@@ -309,9 +311,9 @@ export default {
 }
 
 .product .add-to-cart .add-to-cart-btn:hover {
-  background-color: #FFF;
-  color: #D10024;
-  border-color: #D10024;
+  background-color: #fff;
+  color: #d10024;
+  border-color: #d10024;
   // padding: 0px 30px 0px 50px;
   cursor: pointer;
 }

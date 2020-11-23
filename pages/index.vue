@@ -1,31 +1,31 @@
 <template>
   <div>
-    <new-release/>
-    <popular-books/>
+    <new-release />
+    <popular-books />
   </div>
 </template>
 
 <script>
-import NewRelease from '~/components/NewRelease.vue'
-import PopularBooks from '~/components/PopularBooks.vue'
+import NewRelease from "~/components/NewRelease.vue"
+import PopularBooks from "~/components/PopularBooks.vue"
 
 export default {
   components: {
     NewRelease,
+    PopularBooks,
   },
-  data () {
+  async asyncData(context) {
+    const data = await context.app.$axios.$get(
+      "http://localhost:8000/api/books"
+    )
     return {
-      story: { content: {} }
+      data,
     }
   },
-  mounted () {
+  data() {
+    return {
+      story: { content: {} },
+    }
   },
-  async asyncData (context) {
-    const data = await context.app.$axios.$get('http://localhost:8000/api/books')
-      return {
-        data
-      }
-    // Load the JSON from the API
-  }
 }
 </script>

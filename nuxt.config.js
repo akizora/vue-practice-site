@@ -76,7 +76,21 @@ export default {
   build: {
     vendor: [
       'vue-awesome-swiper'
-    ]
+    ],
+    /*
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: "pre",
+          test: /\.(js|vue)$/,
+          loader: "eslint-loader",
+          exclude: /(node_modules)/
+        })
+      }
+    }
   },
   proxy: {
     '/api': (this.dev) ? 'http://localhost:8000' : 'https://production-url'

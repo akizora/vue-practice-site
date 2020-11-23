@@ -1,4 +1,4 @@
-import { axios } from '../index.js';
+import { axios } from "../index.js"
 
 export default {
   getPost(id) {
@@ -6,7 +6,6 @@ export default {
   },
 
   getBookPost(asin) {
-    return axios.$get(`bookPost/${asin}`, {
-    })
-  }
+    return axios.$get(`bookPost/${asin}`, {})
+  },
 }
