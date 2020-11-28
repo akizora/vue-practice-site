@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-12 section-title mt-5">
           <h5 class="title">最近紹介された書籍</h5>
-          <!-- <p>最終更新日時</p>pme -->
+          <!-- <p>最終更新日時:</p> -->
           <!-- <div class="section-nav">
             <ul class="section-tab-nav tab-nav"></ul>
           </div> -->
