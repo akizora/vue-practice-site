@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  props: ['blok']
+  props: ["blok"],
 }
 </script>

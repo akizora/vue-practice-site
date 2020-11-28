@@ -1,4 +1,4 @@
-import Vue from 'vue'
-import Slide from '~/components/Slide.vue'
+import Vue from "vue"
+import Slide from "~/components/Slide.vue"
 
-Vue.component('slide', Slide)
+Vue.component("Slide", Slide)

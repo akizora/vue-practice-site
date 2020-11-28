@@ -1,32 +1,33 @@
 <template>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="container">
-				<div id="responsive-nav">
-					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="/">Home</a></li>
-						<li><a href="#">最近紹介された書籍</a></li>
-						<li><a href="#">多く紹介された書籍</a></li>
-						<!-- <li><a href="#">Categories</a></li>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <div id="responsive-nav">
+        <ul class="main-nav nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="#">最近紹介された書籍</a></li>
+          <li><a href="#">多く紹介された書籍</a></li>
+          <!-- <li><a href="#">Categories</a></li>
 						<li><a href="#">Laptops</a></li>
 						<li><a href="#">Smartphones</a></li>
 						<li><a href="#">Cameras</a></li>
 						<li><a href="#">Accessories</a></li> -->
-					</ul>
-				</div>
-			</div>
-		</nav>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <style lang="scss" scoped>
 a {
-  color: #2B2D42;
+  color: #2b2d42;
   font-weight: 500;
   -webkit-transition: 0.2s color;
   transition: 0.2s color;
 }
 
-a:hover, a:focus {
-  color: #D10024;
+a:hover,
+a:focus {
+  color: #d10024;
   text-decoration: none;
   outline: none;
 }
@@ -35,30 +36,34 @@ a:hover, a:focus {
 	Main nav
 \*----------------------------*/
 
-.main-nav>li+li {
-  margin-left: 30px
+.main-nav > li + li {
+  margin-left: 30px;
 }
 
-.main-nav>li>a {
+.main-nav > li > a {
   padding: 20px 0px;
 }
 
-.main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {
-  color: #D10024;
+.main-nav > li > a:hover,
+.main-nav > li > a:focus,
+.main-nav > li.active > a {
+  color: #d10024;
   background-color: transparent;
 }
 
-.main-nav>li>a:after {
+.main-nav > li > a:after {
   content: "";
   display: block;
   width: 0%;
   height: 2px;
-  background-color: #D10024;
+  background-color: #d10024;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
 }
 
-.main-nav>li>a:hover:after, .main-nav>li>a:focus:after, .main-nav>li.active>a:after {
+.main-nav > li > a:hover:after,
+.main-nav > li > a:focus:after,
+.main-nav > li.active > a:after {
   width: 100%;
 }
 
@@ -78,7 +83,7 @@ a:hover, a:focus {
     position: fixed;
     left: 0;
     top: 0;
-    background: #15161D;
+    background: #15161d;
     height: 100vh;
     max-width: 250px;
     width: 0%;
@@ -101,16 +106,16 @@ a:hover, a:focus {
     margin: 0px;
     float: none;
   }
-  .main-nav>li {
+  .main-nav > li {
     display: block;
     float: none;
   }
-  .main-nav>li+li {
+  .main-nav > li + li {
     margin-left: 0px;
   }
-  .main-nav>li>a {
+  .main-nav > li > a {
     padding: 15px;
-    color: #FFF;
+    color: #fff;
   }
 }
 </style>

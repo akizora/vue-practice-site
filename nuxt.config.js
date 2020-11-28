@@ -1,82 +1,85 @@
-
 export default {
   /*
-  ** Nuxt rendering mode
-  ** See https://nuxtjs.org/api/configuration-mode
-  */
-  mode: 'universal',
+   ** Nuxt rendering mode
+   ** See https://nuxtjs.org/api/configuration-mode
+   */
+  mode: "universal",
   /*
-  ** Nuxt target
-  ** See https://nuxtjs.org/api/configuration-target
-  */
-  target: 'server',
+   ** Nuxt target
+   ** See https://nuxtjs.org/api/configuration-target
+   */
+  target: "server",
   /*
-  ** Headers of the page
-  ** See https://nuxtjs.org/api/configuration-head
-  */
+   ** Headers of the page
+   ** See https://nuxtjs.org/api/configuration-head
+   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: process.env.npm_package_name || "",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        hid: "description",
+        name: "description",
+        content: process.env.npm_package_description || "",
+      },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       // {
       //   rel: 'stylesheet',
       //   href: 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,700'
       // },
-      { rel: 'stylesheet', href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' }    
-    ]
+      {
+        rel: "stylesheet",
+        href:
+          "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css",
+      },
+    ],
   },
   /*
-  ** Global CSS
-  */
-  css: [
-  ],
+   ** Global CSS
+   */
+  css: [],
   /*
-  ** Plugins to load before mounting the App
-  ** https://nuxtjs.org/guide/plugins
-  */
+   ** Plugins to load before mounting the App
+   ** https://nuxtjs.org/guide/plugins
+   */
   plugins: [
-    { src: '@/plugins/axios/index'},
-    { src: '~/plugins/vue-awesome-swiper'}
+    { src: "@/plugins/axios/index" },
+    { src: "~/plugins/vue-awesome-swiper" },
   ],
   /*
-  ** Auto import components
-  ** See https://nuxtjs.org/api/configuration-components
-  */
+   ** Auto import components
+   ** See https://nuxtjs.org/api/configuration-components
+   */
   components: true,
   /*
-  ** Nuxt.js dev-modules
-  */
-  buildModules: [
-  ],
-  dev: (process.env.NODE_ENV !== 'production'),
+   ** Nuxt.js dev-modules
+   */
+  buildModules: [],
+  dev: process.env.NODE_ENV !== "production",
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js modules
+   */
   modules: [
     [
-      '@nuxtjs/axios',
-      '@nuxtjs/proxy',
-      'storyblok-nuxt',
-      'bootstrap-vue/nuxt',
+      "@nuxtjs/axios",
+      "@nuxtjs/proxy",
+      "storyblok-nuxt",
+      "bootstrap-vue/nuxt",
       {
-        accessToken: 'FsriFeBySE2IiLllzIqaWAtt',
-        cacheProvider: 'memory'
-      }
-    ]
+        accessToken: "FsriFeBySE2IiLllzIqaWAtt",
+        cacheProvider: "memory",
+      },
+    ],
   ],
   /*
-  ** Build configuration
-  ** See https://nuxtjs.org/api/configuration-build/
-  */
+   ** Build configuration
+   ** See https://nuxtjs.org/api/configuration-build/
+   */
   build: {
-    vendor: [
-      'vue-awesome-swiper'
-    ],
+    vendor: ["vue-awesome-swiper"],
     /*
      ** You can extend webpack config here
      */
@@ -87,17 +90,16 @@ export default {
           enforce: "pre",
           test: /\.(js|vue)$/,
           loader: "eslint-loader",
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         })
       }
-    }
+    },
   },
   proxy: {
-    '/api': (this.dev) ? 'http://localhost:8000' : 'https://production-url'
+    "/api": this.dev ? "http://localhost:8000" : "https://production-url",
   },
-  axios: {
-  },
+  axios: {},
   fontawesome: {
-    component: 'fa'
+    component: "fa",
   },
 }

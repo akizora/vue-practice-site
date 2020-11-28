@@ -1,41 +1,44 @@
 <template>
   <div v-editable="blok" class="teaser">
-    <component v-if="slide" :blok="slide" :is="slide.component">
-    </component>
+    <component :is="slide.component" v-if="slide" :blok="slide" />
     <div class="teaser__pag">
-        <button @click="handleDotClick(index)"
-        :key="index"
+      <button
         v-for="(blok, index) in blok.body"
-        :class=" { 'teaser__pag-dot-current': index == currentSlide }"
-        class="teaser__pag-dot">Next</button>
+        :key="index"
+        :class="{ 'teaser__pag-dot-current': index == currentSlide }"
+        class="teaser__pag-dot"
+        @click="handleDotClick(index)"
+      >
+        Next
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-    props: ['blok'],
-        data() {
-            return{
-                currentSlide: 0
-            }
-    },
-    computed: {
-        slide() {
-            let slides = this.blok.body.filter((slide, index) => {
-                return this.currentSlide === index
-            })
-            if(slides.length) {
-                return slides[0]
-            }
-            return null
-        }
-    },
-    methods: {
-        handleDotClick(index) {
-            this.currentSlide = index
-        }
+  props: ["blok"],
+  data() {
+    return {
+      currentSlide: 0,
     }
+  },
+  computed: {
+    slide() {
+      let slides = this.blok.body.filter((slide, index) => {
+        return this.currentSlide === index
+      })
+      if (slides.length) {
+        return slides[0]
+      }
+      return null
+    },
+  },
+  methods: {
+    handleDotClick(index) {
+      this.currentSlide = index
+    },
+  },
 }
 </script>
 

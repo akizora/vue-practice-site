@@ -1,12 +1,12 @@
 <template>
-  <div class="slide" v-editable="blok">
-    <img :src="blok.image">
+  <div v-editable="blok" class="slide">
+    <img :src="blok.image" />
   </div>
 </template>
 
 <script>
 export default {
-  props: ['blok']
+  props: ["blok"],
 }
 </script>
 

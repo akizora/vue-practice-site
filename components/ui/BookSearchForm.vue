@@ -16,15 +16,15 @@
 export default {
   data() {
     return {
-      query: ""
+      query: "",
     }
   },
   methods: {
     submit() {
-      this.$router.push({ path: "/search", query: { q: this.query }})
+      this.$router.push({ path: "/search", query: { q: this.query } })
       this.query = ""
       this.$refs.searchForm.blur()
-    }
-  }
+    },
+  },
 }
 </script>
