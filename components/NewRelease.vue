@@ -53,9 +53,9 @@ export default {
       swiperOption: {
         // effect: "fade",
         loop: true,
-        // autoplay: {
-        //   delay: 5000,
-        // },
+        autoplay: {
+          delay: 3000,
+        },
         pagination: {
           el: ".swiper-pagination",
           // clickable: true
@@ -64,7 +64,7 @@ export default {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
-        slidesPerView: 5,
+        slidesPerView: 3,
       },
     }
   },

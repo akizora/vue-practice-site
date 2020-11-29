@@ -1,15 +1,24 @@
 <template>
-  <div id="bottom-footer" class="mt-5 w-100">
+  <!-- <div id="bottom-footer" class="mt-5 w-100">
     <div class="text-center">
       <span class="copyright" />
     </div>
-  </div>
+  </div> -->
+  <footer>footer</footer>
 </template>
 
 <style lang="scss" scoped>
 /*=========================================================
 	11 -> FOOTER
 ===========================================================*/
+
+footer {
+  color: #fff;
+  padding: 20px;
+  background-color: #2b4257;
+  font-size: 30px;
+  font-weight: bold;
+}
 
 #footer {
   background: #15161d;
