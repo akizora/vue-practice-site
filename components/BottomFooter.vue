@@ -4,7 +4,32 @@
       <span class="copyright" />
     </div>
   </div> -->
-  <footer>footer</footer>
+  <footer>
+    <div class="footer-logo">
+      <nuxt-link :to="`/`" class="btn text-white">FastBook</nuxt-link>
+    </div>
+    <div class="footer-siteinfo">
+      <ul class="list-unstyled d-inline-flex">
+        <li>
+          <nuxt-link :to="`/`" class="btn text-white">
+            このサイトについて
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link :to="`/`" class="btn text-white">お問い合わせ</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link :to="`/`" class="btn text-white">利用規約</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link :to="`/`" class="btn text-white">
+            プライバシーポリシー
+          </nuxt-link>
+        </li>
+      </ul>
+      <p class="text-center">© 2020 FastBook</p>
+    </div>
+  </footer>
 </template>
 
 <style lang="scss" scoped>
@@ -15,9 +40,7 @@
 footer {
   color: #fff;
   padding: 20px;
-  background-color: #2b4257;
-  font-size: 30px;
-  font-weight: bold;
+  background-color: #1e1f29;
 }
 
 #footer {
