@@ -10,7 +10,6 @@
                 placeholder="書籍名を入力"
                 class="input-select w-50"
               />
-              <!-- <input v-model="searchText" placeholder="書籍名を入力" /> -->
               <button class="search-btn" @click="searchBooks">さがす</button>
             </form>
           </div>
@@ -25,7 +24,6 @@ export default {
   data() {
     return {
       baseUrl: "/search",
-      searchText: "",
       query: "",
     }
   },
@@ -33,12 +31,8 @@ export default {
     this.setQuery()
   },
   methods: {
-    makeUrl(url, query) {
-      // 検索条件を元にURL作成
-      return "/search?q=" + query
-    },
     setQuery: function () {
-      this.query = this.$route.query.id || ""
+      this.query = this.$route.query.q || ""
     },
     searchBooks: function () {
       this.$router.push({ path: "/search", query: { q: this.query } })
@@ -78,6 +72,7 @@ export default {
   font-weight: 700;
   border: none;
   border-radius: 0px 40px 40px 0px;
+  cursor: pointer;
 }
 
 /*-- Select input --*/

@@ -4,7 +4,7 @@
       <div class="container d-flex">
         <ul class="header-links my-1">
           <li>
-            <a href="/" class="btn"><i class="fa" />Qiita本</a>
+            <a href="/" class="btn"><i class="fa" />FastBook</a>
           </li>
         </ul>
       </div>
