@@ -1,16 +1,35 @@
 <template>
-  <div id="bottom-footer" class="mt-5 w-100">
-    <!-- <div class="container">
-      <div class="row"> -->
-        <div class="text-center">
-          <!-- <ul class="footer-payments h-100">
-          </ul> -->
-          <span class="copyright">
-          </span>
-        </div>
-      <!-- </div>
-    </div> -->
-  </div>
+  <!-- <div id="bottom-footer" class="mt-5 w-100">
+    <div class="text-center">
+      <span class="copyright" />
+    </div>
+  </div> -->
+  <footer>
+    <div class="footer-logo">
+      <nuxt-link :to="`/`" class="btn text-white">FastBook</nuxt-link>
+    </div>
+    <div class="footer-siteinfo">
+      <ul class="list-unstyled d-inline-flex">
+        <li>
+          <nuxt-link :to="`/`" class="btn text-white">
+            このサイトについて
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link :to="`/`" class="btn text-white">お問い合わせ</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link :to="`/`" class="btn text-white">利用規約</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link :to="`/`" class="btn text-white">
+            プライバシーポリシー
+          </nuxt-link>
+        </li>
+      </ul>
+      <p class="text-center">© 2020 FastBook</p>
+    </div>
+  </footer>
 </template>
 
 <style lang="scss" scoped>
@@ -18,36 +37,42 @@
 	11 -> FOOTER
 ===========================================================*/
 
+footer {
+  color: #fff;
+  padding: 20px;
+  background-color: #1e1f29;
+}
+
 #footer {
-  background: #15161D;
-  color: #B9BABC;
+  background: #15161d;
+  color: #b9babc;
 }
 
 #bottom-footer {
   // height: 100px;
   height: 100px;
   position: absolute;
-  background: #1E1F29;
+  background: #1e1f29;
   bottom: 0;
 }
 
-.footer-links li+li {
+.footer-links li + li {
   margin-top: 15px;
 }
 
 .footer-links li a {
-  color: #B9BABC;
+  color: #b9babc;
 }
 
 .footer-links li i {
   margin-right: 15px;
-  color: #D10024;
+  color: #d10024;
   width: 14px;
   text-align: center;
 }
 
 .footer-links li a:hover {
-  color: #D10024;
+  color: #d10024;
 }
 
 // .copyright {
