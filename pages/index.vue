@@ -16,7 +16,7 @@ export default {
   },
   async asyncData(context) {
     const data = await context.app.$axios.$get(
-      "http://localhost:8000/api/books"
+      process.env.BASE_URL + "/api/books"
     )
     return {
       data,
