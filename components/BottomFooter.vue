@@ -9,24 +9,24 @@
       <nuxt-link :to="`/`" class="btn text-white">FastBook</nuxt-link>
     </div>
     <div class="footer-siteinfo">
-      <ul class="list-unstyled d-inline-flex">
-        <li>
+      <div class="row list-unstyled">
+        <div class="col-sm-3">
           <nuxt-link :to="`/`" class="btn text-white">
             このサイトについて
           </nuxt-link>
-        </li>
-        <li>
+        </div>
+        <div class="col-sm-3">
           <nuxt-link :to="`/`" class="btn text-white">お問い合わせ</nuxt-link>
-        </li>
-        <li>
+        </div>
+        <div class="col-sm-3">
           <nuxt-link :to="`/`" class="btn text-white">利用規約</nuxt-link>
-        </li>
-        <li>
+        </div>
+        <div class="col-sm-3">
           <nuxt-link :to="`/`" class="btn text-white">
             プライバシーポリシー
           </nuxt-link>
-        </li>
-      </ul>
+        </div>
+      </div>
       <p class="text-center">© 2020 FastBook</p>
     </div>
   </footer>
