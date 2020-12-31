@@ -37,6 +37,11 @@
             <div slot="button-next" class="swiper-button-next" />
           </swiper>
         </div>
+        <!-- <div>
+          <div v-if="this.$device.isDesktop">Desktop</div>
+          <div v-else-if="this.$device.isTablet">Tablet</div>
+          <div v-else>Mobile</div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -66,10 +71,20 @@ export default {
         },
         slidesPerView: 5,
       },
+      width: 756,
     }
   },
   created() {
     this.getBooks()
+    if (process.browser) {
+      window.addEventListener("resize", this.changeDisplayBooks)
+    }
+    this.changeDisplayBooks()
+  },
+  beforeDestroy: function () {
+    if (process.browser) {
+      window.removeEventListener("resize", this.handleResize)
+    }
   },
   methods: {
     getBooks() {
@@ -80,6 +95,14 @@ export default {
         .catch((err) => {
           console.log(err)
         })
+    },
+    changeDisplayBooks() {
+      if (process.browser) {
+        this.width = window.innerWidth
+      }
+      if (this.width < 786) {
+        this.swiperOption.slidesPerView = 3
+      }
     },
   },
 }
