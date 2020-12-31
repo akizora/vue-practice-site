@@ -3,39 +3,12 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 section-title mt-5">
-          <h5 class="title">最近Qiitaで紹介された書籍</h5>
-          <!-- <p>最終更新日時</p>pme -->
-          <!-- <div class="section-nav">
-            <ul class="section-tab-nav tab-nav"></ul>
-          </div> -->
+          <h5 class="title">注目のタグ</h5>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-12 div-slide w-100">
-          <swiper :options="swiperOption">
-            <swiper-slide v-for="item in postData" :key="item.id" class="h-100">
-              <div class="product mt-2 mb-5">
-                <div class="product-body">
-                  <nuxt-link :to="`/book/${item.id}`">
-                    <img border="0" :src="item.img_url" />
-                  </nuxt-link>
-                  <h3 class="product-name">
-                    <nuxt-link :to="`/book/${item.id}`">
-                      {{ item.book_name }}
-                    </nuxt-link>
-                  </h3>
-                </div>
-                <div class="add-to-cart">
-                  <nuxt-link class="add-to-cart-btn" :to="`/book/${item.id}`">
-                    詳しくみる
-                  </nuxt-link>
-                </div>
-              </div>
-            </swiper-slide>
-            <div slot="pagination" class="swiper-pagination" />
-            <div slot="button-prev" class="swiper-button-prev" />
-            <div slot="button-next" class="swiper-button-next" />
-          </swiper>
+        <div class="col-sm-12 div-slide w-100 my-2">
+          <button type="button" class="btn btn-outline-success">Success</button>
         </div>
       </div>
     </div>

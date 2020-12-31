@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <div id="header" class="bg-secondary">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
