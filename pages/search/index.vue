@@ -24,7 +24,10 @@
       </div>
     </div>
     <div v-else class="p-5 text-center">
-      <span class="">見つかりませんでした。</span>
+      <p class="">見つかりませんでした。</p>
+      <p class="">
+        <nuxt-link :to="`/`">戻る</nuxt-link>
+      </p>
     </div>
   </div>
 </template>

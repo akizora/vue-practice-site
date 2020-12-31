@@ -67,8 +67,8 @@ textarea.input {
 \*----------------------------*/
 
 #header {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  // padding-top: 15px;
+  // padding-bottom: 15px;
   background-color: #15161d;
 }
 

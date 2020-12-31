@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="header-search text-center">
+          <div class="header-search text-center py-2">
             <form @submit.prevent="searchBooks">
               <input
                 v-model="query"
@@ -35,6 +35,9 @@ export default {
       this.query = this.$route.query.q || ""
     },
     searchBooks: function () {
+      if (this.query == "") {
+        return
+      }
       this.$router.push({ path: "/search", query: { q: this.query } })
     },
   },
@@ -47,10 +50,7 @@ export default {
 \*----------------------------*/
 
 .header-search {
-  padding: 15px 0px;
-}
-
-.header-search {
+  // padding: 15px 0px;
   position: relative;
 }
 
