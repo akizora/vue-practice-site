@@ -29,7 +29,13 @@
       </div>
       <div class="row my-3">
         <div class="col-sm-6 p-3 text-center">
-          <a href="" class="add-to-cart-btn p-2">amazonで詳しくみる</a>
+          <a
+            v-if="this.affiliateLink !== null"
+            :href="this.affiliateLink"
+            class="add-to-cart-btn p-2"
+          >
+            amazonで詳しくみる
+          </a>
         </div>
       </div>
     </div>
@@ -45,6 +51,7 @@ export default {
       bookInfo: this.getBook(this.$route.params.id),
       relatePosts: this.getBookPost(this.$route.params.id),
       postInfo: null,
+      affiliateLink: null,
     }
   },
   methods: {
@@ -56,6 +63,7 @@ export default {
             "https://images-na.ssl-images-amazon.com/images/P/" +
             res.asin +
             ".09.LZZZZZZZ.jpg"
+          this.affiliateLink = res.affiliate_link
         })
         .catch((err) => {
           console.log(err)
