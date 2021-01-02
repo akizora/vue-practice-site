@@ -1,18 +1,18 @@
 <template>
   <div>
-    <featured-tags />
+    <!-- <featured-tags /> -->
     <new-release />
   </div>
 </template>
 
 <script>
+// import FeaturedTags from "~/components/FeaturedTags.vue"
 import NewRelease from "~/components/NewRelease.vue"
-import FeaturedTags from "~/components/FeaturedTags.vue"
 
 export default {
   components: {
     NewRelease,
-    FeaturedTags,
+    // FeaturedTags,
   },
   async asyncData(context) {
     const data = await context.app.$axios.$get(

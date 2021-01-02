@@ -64,7 +64,7 @@ export default {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
-        slidesPerView: 5,
+        slidesPerView: 3,
       },
     }
   },
@@ -308,9 +308,9 @@ export default {
 
 .product .add-to-cart .add-to-cart-btn {
   // position: relative;
-  border: 2px solid transparent;
+  border: 0px solid transparent;
   height: 40px;
-  padding: 0 10%;
+  padding: 0 7%;
   background-color: #ef233c;
   color: #fff;
   border-radius: 40px;
