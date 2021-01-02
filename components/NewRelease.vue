@@ -19,7 +19,7 @@
                   <nuxt-link :to="`/book/${item.id}`">
                     <img border="0" :src="item.img_url" />
                   </nuxt-link>
-                  <h3 class="product-name">
+                  <h3 class="product-name pt-2">
                     <nuxt-link :to="`/book/${item.id}`">
                       {{ item.book_name }}
                     </nuxt-link>
