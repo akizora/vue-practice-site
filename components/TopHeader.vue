@@ -2,11 +2,14 @@
   <header>
     <div id="top-header">
       <div class="container d-flex">
-        <ul class="header-links my-1">
-          <li>
-            <a href="/" class="btn"><i class="fa" />FastBook</a>
-          </li>
-        </ul>
+        <div class="header-links my-1">
+          <div>
+            <a href="/" class="btn text-white"><i class="fa" />FastBook</a>
+            <p class="text-white p-1 m-0 small">
+              Qiita記事で紹介されたモノを紹介します
+            </p>
+          </div>
+        </div>
       </div>
     </div>
     <search-form />

@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <div id="header" class="bg-secondary">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -7,7 +7,7 @@
             <form @submit.prevent="searchBooks">
               <input
                 v-model="query"
-                placeholder="書籍名を入力"
+                placeholder="キーワードを入力"
                 class="input-select w-50"
               />
               <button class="search-btn" @click="searchBooks">さがす</button>
