@@ -13,7 +13,7 @@
         </div>
         <div class="col-sm-6">
           <div class="product-details">
-            <h2 class="product-name">
+            <h2 class="product-name pt-3">
               {{ bookInfo.book_name }}
             </h2>
             <p class="my-3">この本を紹介している記事</p>
