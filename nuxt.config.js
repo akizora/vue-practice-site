@@ -61,17 +61,17 @@ export default {
   */
   modules: [
     [
-      '@nuxtjs/sitemap',
-      '@nuxtjs/robots',
       '@nuxtjs/axios',
-      '@nuxtjs/proxy',
+      // '@nuxtjs/proxy',
       'storyblok-nuxt',
       'bootstrap-vue/nuxt',
       {
         accessToken: 'FsriFeBySE2IiLllzIqaWAtt',
         cacheProvider: 'memory'
       },
-    ]
+    ],
+    ['@nuxtjs/sitemap',],
+    ['@nuxtjs/robots',],
   ],
   sitemap: {
     path: '/sitemap.xml',
