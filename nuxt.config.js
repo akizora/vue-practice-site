@@ -43,7 +43,8 @@ export default {
   */
   plugins: [
     { src: '@/plugins/axios/index'},
-    { src: '~/plugins/vue-awesome-swiper'}
+    { src: '~/plugins/vue-awesome-swiper'},
+    { src: '~plugins/ga.js', mode: 'client' }
   ],
   /*
   ** Auto import components
@@ -72,6 +73,7 @@ export default {
     ],
     ['@nuxtjs/sitemap',],
     ['@nuxtjs/robots',],
+    ['@nuxtjs/google-analytics',],
   ],
   sitemap: {
     path: '/sitemap.xml',
@@ -90,6 +92,9 @@ export default {
     // Disallow: '/preview',
     // sitemap.xmlのURLを記述
     Sitemap: 'https://fastbook.work/sitemap.xml',
+  },
+  googleAnalytics: {
+    id: 'G-7XFE3TJPNM'
   },
   /*
   ** Build configuration
