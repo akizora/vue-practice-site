@@ -68,9 +68,28 @@ export default {
       {
         accessToken: 'FsriFeBySE2IiLllzIqaWAtt',
         cacheProvider: 'memory'
-      }
+      },
+      '@nuxtjs/sitemap',
+      '@nuxtjs/robots',
     ]
   ],
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://fastbook.work',
+    // 例えば、管理画面があるような場合は下記のように除外するのがベター（内容は仮です）
+    // exclude: ['/admin', '/user'],
+    // ルートを設定
+    // ルートが固定ならば、下記のように配列で定義すればよいです
+    routes: ['/about', '/contact'],
+    // 動的なルートが存在する場合は、APIで記事データを取得してパスを設定する方法を採りましょう
+  },
+  robots: {
+    UserAgent: '*',
+    // クローリングしないパスを記述
+    // Disallow: '/preview',
+    // sitemap.xmlのURLを記述
+    Sitemap: 'https://fastbook.work/sitemap.xml',
+  }
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
