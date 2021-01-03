@@ -89,7 +89,7 @@ export default {
     // Disallow: '/preview',
     // sitemap.xmlのURLを記述
     Sitemap: 'https://fastbook.work/sitemap.xml',
-  }
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
