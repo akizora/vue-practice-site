@@ -2,7 +2,7 @@
   <div class="section">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 section-title mt-5">
+        <div class="col-md-12 section-title mt-5 mb-5">
           <h5 class="title">最近Qiitaで紹介された書籍</h5>
           <!-- <p>最終更新日時</p>pme -->
           <!-- <div class="section-nav">
