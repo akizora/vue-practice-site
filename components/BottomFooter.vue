@@ -16,7 +16,9 @@
           </nuxt-link>
         </div> -->
         <div class="col-sm-2">
-          <nuxt-link :to="`/`" class="btn text-white">お問い合わせ</nuxt-link>
+          <nuxt-link :to="`/form`" class="btn text-white">
+            お問い合わせ
+          </nuxt-link>
         </div>
         <!-- <div class="col-sm-3">
           <nuxt-link :to="`/`" class="btn text-white">利用規約</nuxt-link>
