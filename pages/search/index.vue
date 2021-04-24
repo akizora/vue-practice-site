@@ -36,7 +36,7 @@
 import BookApi from "@/plugins/axios/modules/book"
 
 export default {
-  props: ["data"],
+  // props: ["data"],
   data() {
     return {
       query: "",

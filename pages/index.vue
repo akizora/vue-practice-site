@@ -1,30 +1,29 @@
 <template>
   <div>
-    <!-- <featured-tags /> -->
-    <new-release />
+    <new-release :newBooks="books" />
   </div>
 </template>
 
 <script>
-// import FeaturedTags from "~/components/FeaturedTags.vue"
+import axios from "axios"
 import NewRelease from "~/components/NewRelease.vue"
 
 export default {
   components: {
     NewRelease,
-    // FeaturedTags,
   },
-  async asyncData(context) {
-    const data = await context.app.$axios.$get(
-      process.env.BASE_URL + "/api/books"
-    )
+  async asyncData() {
+    const requestUrl = process.env.BASE_URL + "/api/books"
+    const books = await axios
+      .get(requestUrl)
+      .then((res) => {
+        return res.data
+      })
+      .catch((err) => {
+        console.error(err)
+      })
     return {
-      data,
-    }
-  },
-  data() {
-    return {
-      story: { content: {} },
+      books: books,
     }
   },
 }

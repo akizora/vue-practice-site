@@ -1,6 +1,6 @@
 <template>
   <div class="p-contact">
-    <form
+    <!-- <form
       class="p-contact__form"
       name="contact"
       method="POST"
@@ -45,7 +45,7 @@
       <div class="p-contact__submit">
         <button type="submit">送信</button>
       </div>
-    </form>
+    </form> -->
   </div>
 </template>
 

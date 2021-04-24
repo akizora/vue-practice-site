@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col-sm-12 div-slide w-100">
           <swiper :options="swiperOption">
-            <swiper-slide v-for="item in postData" :key="item.id" class="h-100">
+            <swiper-slide v-for="item in newBooks" :key="item.id" class="h-100">
               <div class="product mt-2 mb-5">
                 <div class="product-body">
                   <nuxt-link :to="`/book/${item.id}`">
@@ -48,12 +48,18 @@
 </template>
 
 <script>
-import BookApi from "@/plugins/axios/modules/book"
+// import BookApi from "@/plugins/axios/modules/book"
 
 export default {
+  props: {
+    "new-books": {
+      type: Array,
+      default: () => [],
+    },
+  },
   data() {
     return {
-      postData: null,
+      postData: {},
       story: { content: {} },
       swiperOption: {
         // effect: "fade",
@@ -75,10 +81,10 @@ export default {
     }
   },
   created() {
-    this.getBooks()
-    if (process.browser) {
-      window.addEventListener("resize", this.changeDisplayBooks)
-    }
+    // this.getBooks()
+    // if (process.browser) {
+    //   window.addEventListener("resize", this.changeDisplayBooks)
+    // }
     this.changeDisplayBooks()
   },
   beforeDestroy: function () {
@@ -87,15 +93,15 @@ export default {
     }
   },
   methods: {
-    getBooks() {
-      BookApi.getBooks()
-        .then((res) => {
-          this.postData = res
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    },
+    // getBooks() {
+    //   BookApi.getBooks()
+    //     .then((res) => {
+    //       this.postData = res
+    //     })
+    //     .catch((err) => {
+    //       console.log(err)
+    //     })
+    // },
     changeDisplayBooks() {
       if (process.browser) {
         this.width = window.innerWidth

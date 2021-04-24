@@ -30,8 +30,8 @@
       <div class="row my-3">
         <div class="col-sm-6 p-3 text-center">
           <a
-            v-if="this.affiliateLink !== null"
-            :href="this.affiliateLink"
+            v-if="affiliateLink !== null"
+            :href="affiliateLink"
             class="add-to-cart-btn p-2"
           >
             amazonで詳しくみる
