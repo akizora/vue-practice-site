@@ -49,14 +49,9 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-<<<<<<< HEAD
-    { src: "@/plugins/axios/index" },
-    { src: "~/plugins/vue-awesome-swiper" },
-=======
     { src: '@/plugins/axios/index'},
     { src: '~/plugins/vue-awesome-swiper'},
     { src: '~plugins/ga.js', mode: 'client' }
->>>>>>> origin/feature/apichange
   ],
   /*
    ** Auto import components
