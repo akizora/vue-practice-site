@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <top-header />
-    <nuxt />
+  <div class="default">
+    <div class="wrapper">
+      <top-header />
+      <nuxt />
+    </div>
     <bottom-footer />
   </div>
 </template>
@@ -34,12 +36,18 @@ export default {
 .body-class {
   height: 100%;
 }
+.wrapper {
+  min-height: 100%;
+}
 #__nuxt {
-  // height: 100%
-  min-height: 1200px;
-  position: relative;
+  height: 100%;
+  // min-height: 120%;
+  // position: relative;
 }
 #__layout {
+  height: 100%;
+}
+.default {
   height: 100%;
 }
 </style>

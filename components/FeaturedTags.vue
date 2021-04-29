@@ -1,71 +1,33 @@
 <template>
   <div class="section">
-    <div class="container-fluid mb-5">
+    <div class="container">
       <div class="row">
-        <div class="col-md-12 section-title mt-5 mb-5 text-center">
-          <h2 class="title">Books recently featured on Qiita</h2>
-          <!-- <p>最終更新日時</p>pme -->
-          <!-- <div class="section-nav">
-            <ul class="section-tab-nav tab-nav"></ul>
-          </div> -->
+        <div class="col-md-12 section-title mt-5">
+          <h5 class="title">注目のタグ</h5>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-12 div-slide w-100">
-          <swiper :options="swiperOption">
-            <swiper-slide v-for="item in newBooks" :key="item.id" class="h-100">
-              <div class="product mt-2 mb-5">
-                <div class="product-body">
-                  <nuxt-link :to="`/book/${item.id}`">
-                    <img border="0" :src="item.img_url" />
-                  </nuxt-link>
-                  <h3 class="product-name pt-2">
-                    <nuxt-link :to="`/book/${item.id}`">
-                      {{ item.book_name }}
-                    </nuxt-link>
-                  </h3>
-                </div>
-                <div class="add-to-cart">
-                  <nuxt-link class="add-to-cart-btn" :to="`/book/${item.id}`">
-                    View More
-                  </nuxt-link>
-                </div>
-              </div>
-            </swiper-slide>
-            <div slot="pagination" class="swiper-pagination" />
-            <div slot="button-prev" class="swiper-button-prev" />
-            <div slot="button-next" class="swiper-button-next" />
-          </swiper>
+        <div class="col-sm-12 div-slide w-100 my-2">
+          <button type="button" class="btn btn-outline-success">Success</button>
         </div>
-        <!-- <div>
-          <div v-if="this.$device.isDesktop">Desktop</div>
-          <div v-else-if="this.$device.isTablet">Tablet</div>
-          <div v-else>Mobile</div>
-        </div> -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// import BookApi from "@/plugins/axios/modules/book"
+import BookApi from "@/plugins/axios/modules/book"
 
 export default {
-  props: {
-    "new-books": {
-      type: Array,
-      default: () => [],
-    },
-  },
   data() {
     return {
-      postData: {},
+      postData: null,
       story: { content: {} },
       swiperOption: {
         // effect: "fade",
         loop: true,
         autoplay: {
-          delay: 5000,
+          delay: 3000,
         },
         pagination: {
           el: ".swiper-pagination",
@@ -75,27 +37,22 @@ export default {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
-        slidesPerView: 3,
+        slidesPerView: 5,
       },
-      width: 756,
     }
   },
   created() {
-    this.changeDisplayBooks()
-  },
-  beforeDestroy: function () {
-    if (process.browser) {
-      window.removeEventListener("resize", this.handleResize)
-    }
+    this.getBooks()
   },
   methods: {
-    changeDisplayBooks() {
-      if (process.browser) {
-        this.width = window.innerWidth
-      }
-      if (this.width < 786) {
-        this.swiperOption.slidesPerView = 3
-      }
+    getBooks() {
+      BookApi.getBooks()
+        .then((res) => {
+          this.postData = res
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     },
   },
 }
@@ -109,8 +66,16 @@ export default {
 /*----------------------------*\
 	Section
 \*----------------------------*/
-.title {
-  font-weight: 100;
+
+.section {
+  // padding-top: 30px;
+  // padding-bottom: 30px;
+}
+
+.section-title {
+  // position: relative;
+  // margin-bottom: 30px;
+  // margin-top: 15px;
 }
 
 .section-title .title {
@@ -232,8 +197,8 @@ export default {
 .product {
   position: relative;
   margin: 15px 0px;
-  // -webkit-box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
-  // box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
+  -webkit-box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
+  box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
   height: 280px;
@@ -309,17 +274,17 @@ export default {
 
 .product .add-to-cart {
   padding: 10px 0;
-  // background: #1e1f29;
+  background: #1e1f29;
   text-align: center;
   z-index: 2;
 }
 
 .product .add-to-cart .add-to-cart-btn {
   // position: relative;
-  border: 0px solid transparent;
+  border: 2px solid transparent;
   height: 40px;
-  padding: 8px 10%;
-  background-color: #5bd8ac;
+  padding: 0 10%;
+  background-color: #ef233c;
   color: #fff;
   border-radius: 40px;
   // -webkit-transition: 0.2s all;
@@ -329,11 +294,9 @@ export default {
 
 .product .add-to-cart .add-to-cart-btn:hover {
   background-color: #fff;
-  color: #5bd8ac;
-  // border-color: #5bd8ac;
-  border-style: solid 1px #5bd8ac;
+  color: #d10024;
+  border-color: #d10024;
   // padding: 0px 30px 0px 50px;
   cursor: pointer;
-  transition: 0.4s all;
 }
 </style>

@@ -2,7 +2,7 @@ export let axios
 
 export default ({ store, $axios }) => {
   console.log(store)
-  $axios.defaults.baseURL = "http://localhost:8000/api/"
+  $axios.defaults.baseURL = process.env.BASE_URL + "/api/"
   $axios.onRequest((config) => {
     config.headers.common["Accept"] = "application/json"
   })

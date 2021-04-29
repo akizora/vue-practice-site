@@ -1,30 +1,32 @@
 <template>
   <div>
-    <new-release />
-    <popular-books />
+    <first-view />
+    <new-release :newBooks="books" />
   </div>
 </template>
 
 <script>
+import axios from "axios"
 import NewRelease from "~/components/NewRelease.vue"
-import PopularBooks from "~/components/PopularBooks.vue"
+import FirstView from "~/components/FirstView.vue"
 
 export default {
   components: {
     NewRelease,
-    PopularBooks,
+    FirstView,
   },
-  async asyncData(context) {
-    const data = await context.app.$axios.$get(
-      "http://localhost:8000/api/books"
-    )
+  async asyncData() {
+    const requestUrl = process.env.BASE_URL + "/api/books"
+    const books = await axios
+      .get(requestUrl)
+      .then((res) => {
+        return res.data
+      })
+      .catch((err) => {
+        console.error(err)
+      })
     return {
-      data,
-    }
-  },
-  data() {
-    return {
-      story: { content: {} },
+      books: books,
     }
   },
 }

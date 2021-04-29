@@ -1,3 +1,6 @@
+require('dotenv').config()
+const { API_KEY, BASE_URL, NODE_ENV } = process.env
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -46,8 +49,14 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
+<<<<<<< HEAD
     { src: "@/plugins/axios/index" },
     { src: "~/plugins/vue-awesome-swiper" },
+=======
+    { src: '@/plugins/axios/index'},
+    { src: '~/plugins/vue-awesome-swiper'},
+    { src: '~plugins/ga.js', mode: 'client' }
+>>>>>>> origin/feature/apichange
   ],
   /*
    ** Auto import components
@@ -64,6 +73,7 @@ export default {
    */
   modules: [
     [
+<<<<<<< HEAD
       "@nuxtjs/axios",
       "@nuxtjs/proxy",
       "storyblok-nuxt",
@@ -73,7 +83,42 @@ export default {
         cacheProvider: "memory",
       },
     ],
+=======
+      '@nuxtjs/axios',
+      // '@nuxtjs/proxy',
+      'storyblok-nuxt',
+      'bootstrap-vue/nuxt',
+      {
+        accessToken: 'FsriFeBySE2IiLllzIqaWAtt',
+        cacheProvider: 'memory'
+      },
+    ],
+    ['@nuxtjs/sitemap',],
+    ['@nuxtjs/robots',],
+    ['@nuxtjs/google-analytics',],
+>>>>>>> origin/feature/apichange
   ],
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://fastbook.work',
+    generate: true,
+    // 例えば、管理画面があるような場合は下記のように除外するのがベター（内容は仮です）
+    // exclude: ['/admin', '/user'],
+    // ルートを設定
+    // ルートが固定ならば、下記のように配列で定義すればよいです
+    // routes: ['/about', '/contact'],
+    // 動的なルートが存在する場合は、APIで記事データを取得してパスを設定する方法を採りましょう
+  },
+  robots: {
+    UserAgent: '*',
+    // クローリングしないパスを記述
+    // Disallow: '/preview',
+    // sitemap.xmlのURLを記述
+    Sitemap: 'https://fastbook.work/sitemap.xml',
+  },
+  googleAnalytics: {
+    id: 'G-7XFE3TJPNM'
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
@@ -102,4 +147,13 @@ export default {
   fontawesome: {
     component: "fa",
   },
+  env: {
+    API_KEY,
+    BASE_URL,
+    NODE_ENV,
+  },
+  // netlify対応 SPAだとpage not foundになる
+  generate: {
+    fallback: true
+  }
 }

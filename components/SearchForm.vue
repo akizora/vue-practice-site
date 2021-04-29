@@ -1,16 +1,15 @@
 <template>
-  <div id="header">
+  <div id="header" class="bg-secondary">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="header-search text-center">
+          <div class="header-search text-center py-2">
             <form @submit.prevent="searchBooks">
               <input
                 v-model="query"
-                placeholder="書籍名を入力"
+                placeholder="キーワードを入力"
                 class="input-select w-50"
               />
-              <!-- <input v-model="searchText" placeholder="書籍名を入力" /> -->
               <button class="search-btn" @click="searchBooks">さがす</button>
             </form>
           </div>
@@ -25,7 +24,6 @@ export default {
   data() {
     return {
       baseUrl: "/search",
-      searchText: "",
       query: "",
     }
   },
@@ -33,14 +31,13 @@ export default {
     this.setQuery()
   },
   methods: {
-    makeUrl(url, query) {
-      // 検索条件を元にURL作成
-      return "/search?q=" + query
-    },
     setQuery: function () {
-      this.query = this.$route.query.id || ""
+      this.query = this.$route.query.q || ""
     },
     searchBooks: function () {
+      if (this.query == "") {
+        return
+      }
       this.$router.push({ path: "/search", query: { q: this.query } })
     },
   },
@@ -53,10 +50,7 @@ export default {
 \*----------------------------*/
 
 .header-search {
-  padding: 15px 0px;
-}
-
-.header-search {
+  // padding: 15px 0px;
   position: relative;
 }
 
@@ -78,6 +72,7 @@ export default {
   font-weight: 700;
   border: none;
   border-radius: 0px 40px 40px 0px;
+  cursor: pointer;
 }
 
 /*-- Select input --*/

@@ -44,6 +44,20 @@
     </div>
   </div>
 </template>
+<script>
+
+export default {
+    data () {
+      return {
+
+      }
+    },
+    created () {
+      // console.log(baseUrl)
+      console.log(process.env.BASE_URL)
+}
+}
+</script>
 
 <script>
 import BookApi from "@/plugins/axios/modules/book"

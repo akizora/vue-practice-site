@@ -13,7 +13,7 @@
         </div>
         <div class="col-sm-6">
           <div class="product-details">
-            <h2 class="product-name">
+            <h2 class="product-name pt-3">
               {{ bookInfo.book_name }}
             </h2>
             <p class="my-3">この本を紹介している記事</p>
@@ -29,7 +29,13 @@
       </div>
       <div class="row my-3">
         <div class="col-sm-6 p-3 text-center">
-          <a href="" class="add-to-cart-btn p-2">amazonで詳しくみる</a>
+          <a
+            v-if="affiliateLink !== null"
+            :href="affiliateLink"
+            class="add-to-cart-btn p-2"
+          >
+            amazonで詳しくみる
+          </a>
         </div>
       </div>
     </div>
@@ -45,6 +51,7 @@ export default {
       bookInfo: this.getBook(this.$route.params.id),
       relatePosts: this.getBookPost(this.$route.params.id),
       postInfo: null,
+      affiliateLink: null,
     }
   },
   methods: {
@@ -56,6 +63,7 @@ export default {
             "https://images-na.ssl-images-amazon.com/images/P/" +
             res.asin +
             ".09.LZZZZZZZ.jpg"
+          this.affiliateLink = res.affiliate_link
         })
         .catch((err) => {
           console.log(err)
