@@ -1,7 +1,7 @@
 <template>
   <div>
     <first-view />
-    <new-release :newBooks="books" />
+    <new-release :new-books="books" />
   </div>
 </template>
 

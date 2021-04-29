@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config()
 const { API_KEY, BASE_URL, NODE_ENV } = process.env
 
 export default {
@@ -49,9 +49,9 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    { src: '@/plugins/axios/index'},
-    { src: '~/plugins/vue-awesome-swiper'},
-    { src: '~plugins/ga.js', mode: 'client' }
+    { src: "@/plugins/axios/index" },
+    { src: "~/plugins/vue-awesome-swiper" },
+    { src: "~plugins/ga.js", mode: "client" },
   ],
   /*
    ** Auto import components
@@ -68,22 +68,22 @@ export default {
    */
   modules: [
     [
-      '@nuxtjs/axios',
+      "@nuxtjs/axios",
       // '@nuxtjs/proxy',
-      'storyblok-nuxt',
-      'bootstrap-vue/nuxt',
+      "storyblok-nuxt",
+      "bootstrap-vue/nuxt",
       {
-        accessToken: 'FsriFeBySE2IiLllzIqaWAtt',
-        cacheProvider: 'memory'
+        accessToken: "FsriFeBySE2IiLllzIqaWAtt",
+        cacheProvider: "memory",
       },
     ],
-    ['@nuxtjs/sitemap',],
-    ['@nuxtjs/robots',],
-    ['@nuxtjs/google-analytics',],
+    ["@nuxtjs/sitemap"],
+    ["@nuxtjs/robots"],
+    ["@nuxtjs/google-analytics"],
   ],
   sitemap: {
-    path: '/sitemap.xml',
-    hostname: 'https://fastbook.work',
+    path: "/sitemap.xml",
+    hostname: "https://fastbook.work",
     generate: true,
     // 例えば、管理画面があるような場合は下記のように除外するのがベター（内容は仮です）
     // exclude: ['/admin', '/user'],
@@ -93,14 +93,14 @@ export default {
     // 動的なルートが存在する場合は、APIで記事データを取得してパスを設定する方法を採りましょう
   },
   robots: {
-    UserAgent: '*',
+    UserAgent: "*",
     // クローリングしないパスを記述
     // Disallow: '/preview',
     // sitemap.xmlのURLを記述
-    Sitemap: 'https://fastbook.work/sitemap.xml',
+    Sitemap: "https://fastbook.work/sitemap.xml",
   },
   googleAnalytics: {
-    id: 'G-7XFE3TJPNM'
+    id: "G-7XFE3TJPNM",
   },
   /*
    ** Build configuration
@@ -137,6 +137,6 @@ export default {
   },
   // netlify対応 SPAだとpage not foundになる
   generate: {
-    fallback: true
-  }
+    fallback: true,
+  },
 }
