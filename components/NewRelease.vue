@@ -1,9 +1,9 @@
 <template>
   <div class="section">
-    <div class="container">
+    <div class="container-fluid mb-5">
       <div class="row">
-        <div class="col-md-12 section-title mt-5 mb-5">
-          <h5 class="title">最近Qiitaで紹介された書籍</h5>
+        <div class="col-md-12 section-title mt-5 mb-5 text-center">
+          <h2 class="title">Books recently featured on Qiita</h2>
           <!-- <p>最終更新日時</p>pme -->
           <!-- <div class="section-nav">
             <ul class="section-tab-nav tab-nav"></ul>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="add-to-cart">
                   <nuxt-link class="add-to-cart-btn" :to="`/book/${item.id}`">
-                    詳しくみる
+                    View More
                   </nuxt-link>
                 </div>
               </div>
@@ -65,7 +65,7 @@ export default {
         // effect: "fade",
         loop: true,
         autoplay: {
-          delay: 3000,
+          delay: 5000,
         },
         pagination: {
           el: ".swiper-pagination",
@@ -81,10 +81,6 @@ export default {
     }
   },
   created() {
-    // this.getBooks()
-    // if (process.browser) {
-    //   window.addEventListener("resize", this.changeDisplayBooks)
-    // }
     this.changeDisplayBooks()
   },
   beforeDestroy: function () {
@@ -93,15 +89,6 @@ export default {
     }
   },
   methods: {
-    // getBooks() {
-    //   BookApi.getBooks()
-    //     .then((res) => {
-    //       this.postData = res
-    //     })
-    //     .catch((err) => {
-    //       console.log(err)
-    //     })
-    // },
     changeDisplayBooks() {
       if (process.browser) {
         this.width = window.innerWidth
@@ -122,16 +109,8 @@ export default {
 /*----------------------------*\
 	Section
 \*----------------------------*/
-
-.section {
-  // padding-top: 30px;
-  // padding-bottom: 30px;
-}
-
-.section-title {
-  // position: relative;
-  // margin-bottom: 30px;
-  // margin-top: 15px;
+.title {
+  font-weight: 100;
 }
 
 .section-title .title {
@@ -253,8 +232,8 @@ export default {
 .product {
   position: relative;
   margin: 15px 0px;
-  -webkit-box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
-  box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
+  // -webkit-box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
+  // box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
   height: 280px;
@@ -330,7 +309,7 @@ export default {
 
 .product .add-to-cart {
   padding: 10px 0;
-  background: #1e1f29;
+  // background: #1e1f29;
   text-align: center;
   z-index: 2;
 }
@@ -339,8 +318,8 @@ export default {
   // position: relative;
   border: 0px solid transparent;
   height: 40px;
-  padding: 0 7%;
-  background-color: #ef233c;
+  padding: 8px 10%;
+  background-color: #5bd8ac;
   color: #fff;
   border-radius: 40px;
   // -webkit-transition: 0.2s all;
@@ -350,9 +329,11 @@ export default {
 
 .product .add-to-cart .add-to-cart-btn:hover {
   background-color: #fff;
-  color: #d10024;
-  border-color: #d10024;
+  color: #5bd8ac;
+  // border-color: #5bd8ac;
+  border-style: solid 1px #5bd8ac;
   // padding: 0px 30px 0px 50px;
   cursor: pointer;
+  transition: 0.4s all;
 }
 </style>
