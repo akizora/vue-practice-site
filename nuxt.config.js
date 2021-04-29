@@ -73,17 +73,6 @@ export default {
    */
   modules: [
     [
-<<<<<<< HEAD
-      "@nuxtjs/axios",
-      "@nuxtjs/proxy",
-      "storyblok-nuxt",
-      "bootstrap-vue/nuxt",
-      {
-        accessToken: "FsriFeBySE2IiLllzIqaWAtt",
-        cacheProvider: "memory",
-      },
-    ],
-=======
       '@nuxtjs/axios',
       // '@nuxtjs/proxy',
       'storyblok-nuxt',
@@ -96,7 +85,6 @@ export default {
     ['@nuxtjs/sitemap',],
     ['@nuxtjs/robots',],
     ['@nuxtjs/google-analytics',],
->>>>>>> origin/feature/apichange
   ],
   sitemap: {
     path: '/sitemap.xml',
