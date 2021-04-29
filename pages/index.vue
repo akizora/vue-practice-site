@@ -1,5 +1,6 @@
 <template>
   <div>
+    <first-view />
     <new-release :newBooks="books" />
   </div>
 </template>
@@ -7,10 +8,12 @@
 <script>
 import axios from "axios"
 import NewRelease from "~/components/NewRelease.vue"
+import FirstView from "~/components/FirstView.vue"
 
 export default {
   components: {
     NewRelease,
+    FirstView,
   },
   async asyncData() {
     const requestUrl = process.env.BASE_URL + "/api/books"
