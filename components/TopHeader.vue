@@ -17,16 +17,16 @@
 
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <!-- <a class="nav-link" href="#">
+            <!-- <li class="nav-item active">
+              <a class="nav-link" href="#">
                 Home <span class="sr-only">(current)</span>
-              </a> -->
-            </li>
-            <li class="nav-item">
-              <!-- <a class="nav-link" href="#">Link</a> -->
-            </li>
-            <li class="nav-item dropdown">
-              <!-- <a
+              </a>
+            </li> -->
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li> -->
+            <!-- <li class="nav-item dropdown">
+              <a
                 id="navbarDropdown"
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -36,38 +36,36 @@
                 aria-expanded="false"
               >
                 Dropdown
-              </a> -->
+              </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Action</a>
                 <a class="dropdown-item" href="#">Another action</a>
-                <!-- <div class="dropdown-divider"></div> -->
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
-            </li>
+            </li> -->
             <li class="nav-item">
               <!-- <a class="nav-link disabled" href="#">Disabled</a> -->
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" /> -->
-            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-          </form>
         </div>
       </nav>
-      <!-- <div id="top-header">
-        <div class="container-fluid d-flex">
-          <div class="row">
-            <div class="col-8">
-              <a href="/" class="btn text-white pl-0">
-                <i class="fa" />FastBook
-              </a>
-              <p class="text-white p-1 m-0 small">
-                Qiita記事で紹介されたモノを紹介します
-              </p>
-            </div>
-          </div>
+      <!-- プログラミング言語の一覧 -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+          </ul>
         </div>
-      </div> -->
+      </nav>
     </div>
     <!-- <search-form /> -->
   </header>
@@ -77,6 +75,12 @@
 header {
   nav {
     background-color: #1e1f29 !important;
+  }
+  .navbar-light {
+    background-color: #fff !important;
+  }
+  .nav-link {
+    margin-right: 3rem;
   }
 }
 </style>
